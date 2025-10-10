@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw2roy32jn35h"]
+
+[ext_resource type="Script" uid="uid://bmt74pmvman41" path="res://Scripts/title_screen.gd" id="1_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://sprites/Backgrounds/layer6.png" id="1_pkhjh"]
+[ext_resource type="Texture2D" uid="uid://e0nekhjx8jvg" path="res://sprites/player/sprPlayerTitle.png" id="2_1xr1c"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xr1c")
+
+[node name="imgBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -1.0
+offset_right = 1283.0
+offset_bottom = 718.0
+texture = ExtResource("1_pkhjh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="imgTitle" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="buttonStart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "START"
+
+[node name="buttonCredits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="buttonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT GAME"
+
+[node name="imgPlayer" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_1xr1c")
+expand_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://xje8afndjb4n"]
 
-[ext_resource type="Script" uid="uid://din5jccvsit2j" path="res://levels/item.gd" id="1_862ai"]
-[ext_resource type="Texture2D" uid="uid://cw0a47puat7t6" path="res://sprites/sprItem.png" id="2_bdsw2"]
+[ext_resource type="Script" uid="uid://din5jccvsit2j" path="res://actors/item.gd" id="1_862ai"]
+[ext_resource type="Texture2D" uid="uid://cw0a47puat7t6" path="res://sprites/items/sprSoul.png" id="2_bdsw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onuvs"]
 radius = 15.670837
