@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0lgpi5wendtc"
-path="res://.godot/imported/backgroundColor.png-c6816d392386c24ed19ac8783214e142.ctex"
+uid="uid://wmgpwytjxoo2"
+path="res://.godot/imported/layer4.png-bc8d29942fe0bcead24fb96651ba2f4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/Nova pasta/backgroundColor.png"
-dest_files=["res://.godot/imported/backgroundColor.png-c6816d392386c24ed19ac8783214e142.ctex"]
+source_file="res://sprites/Backgrounds/layer4.png"
+dest_files=["res://.godot/imported/layer4.png-bc8d29942fe0bcead24fb96651ba2f4a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqvbye5pqhdey"
-path="res://.godot/imported/MiddleLayer.png-22a3ff8f313135dc269a0c23bf9a35e4.ctex"
+uid="uid://bna87o5bn16bf"
+path="res://.godot/imported/layer2.png-6b13049b21923fc506e4e0b56df49210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Backgrounds/MiddleLayer.png"
-dest_files=["res://.godot/imported/MiddleLayer.png-22a3ff8f313135dc269a0c23bf9a35e4.ctex"]
+source_file="res://sprites/Backgrounds/layer2.png"
+dest_files=["res://.godot/imported/layer2.png-6b13049b21923fc506e4e0b56df49210.ctex"]
 
 [params]
 
