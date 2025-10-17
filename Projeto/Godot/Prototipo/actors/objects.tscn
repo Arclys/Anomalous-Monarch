@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bayaq7o8wlpmg"]
+[gd_scene load_steps=25 format=3 uid="uid://bayaq7o8wlpmg"]
 
-[ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://entitys/character_body_2d.gd" id="1_hkk4q"]
-[ext_resource type="Script" uid="uid://bt0lc5umv14qg" path="res://entitys/camera_2d.gd" id="2_3kqal"]
-[ext_resource type="Texture2D" uid="uid://cdq8el11x0muu" path="res://sprites/player/sprPlayer-SpriteSheet.png" id="3_khaf1"]
-[ext_resource type="Script" uid="uid://din5jccvsit2j" path="res://actors/item.gd" id="4_j5at4"]
-[ext_resource type="Texture2D" uid="uid://cw0a47puat7t6" path="res://sprites/items/sprSoul.png" id="5_5kej7"]
+[ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_hkk4q"]
+[ext_resource type="Script" uid="uid://bt0lc5umv14qg" path="res://Scripts/Camera2D.gd" id="2_3kqal"]
+[ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Assets/Player/sprPlayer-SpriteSheet.png" id="3_khaf1"]
+[ext_resource type="Texture2D" uid="uid://4f80xqcj1hwe" path="res://Assets/Items/sprSoul.png" id="5_5kej7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek5qi"]
 size = Vector2(18.333332, 18.47132)
@@ -186,7 +185,6 @@ autoplay = "Idle"
 position = Vector2(80, -55)
 collision_layer = 8
 gravity_scale = 0.0
-script = ExtResource("4_j5at4")
 
 [node name="Collision" type="CollisionShape2D" parent="Item"]
 texture_repeat = 2
@@ -198,3 +196,5 @@ shape = SubResource("CircleShape2D_fwbb7")
 sprite_frames = SubResource("SpriteFrames_2ylpc")
 animation = &"moving"
 autoplay = "moving"
+
+[node name="ProjectManager" type="Node2D" parent="."]
