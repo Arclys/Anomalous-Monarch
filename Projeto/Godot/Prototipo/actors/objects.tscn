@@ -181,6 +181,8 @@ sprite_frames = SubResource("SpriteFrames_ixq6f")
 animation = &"Fall"
 autoplay = "Idle"
 
+[node name="State Machine" type="Node" parent="Player"]
+
 [node name="Item" type="RigidBody2D" parent="."]
 position = Vector2(80, -55)
 collision_layer = 8
