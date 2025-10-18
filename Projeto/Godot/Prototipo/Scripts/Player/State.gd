@@ -1,15 +1,19 @@
-# --Estado parado--
-extends Node
+class_name State extends Node
 
-
-# Função pré loop
-func _ready() -> void: 
+@onready var sprite: AnimatedSprite2D = $Sprite
+# Inicio do Loop
+func begin_process() -> void: 
 	pass
-
-
-# Loop
+	
+# Loop básico
 func _process(delta: float) -> void:
 	pass
-# Função pós loop
-func _exit() -> void:
+	
+	
+# Loop da física	
+func _physics_process(delta: float) -> void:
+	pass
+	
+# Fim do Loop
+func end_process() -> void:
 	pass
