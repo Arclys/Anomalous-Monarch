@@ -1,6 +1,7 @@
 class_name State extends Node
 
-@onready var sprite: AnimatedSprite2D = $Sprite
+
+var state_machine: StateMachine
 # Inicio do Loop
 func begin_process() -> void: 
 	pass

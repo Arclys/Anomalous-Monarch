@@ -1,12 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bayaq7o8wlpmg"]
+[gd_scene load_steps=25 format=3 uid="uid://bayaq7o8wlpmg"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_hkk4q"]
 [ext_resource type="Script" uid="uid://bt0lc5umv14qg" path="res://Scripts/Camera2D.gd" id="2_3kqal"]
 [ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Assets/Player/sprPlayer-SpriteSheet.png" id="3_khaf1"]
-[ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Player/StateMachine.gd" id="4_4ondg"]
 [ext_resource type="Texture2D" uid="uid://4f80xqcj1hwe" path="res://Assets/Items/sprSoul.png" id="5_5kej7"]
-[ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Actors/idle.gd" id="5_w2p0w"]
-[ext_resource type="Script" uid="uid://cp53tkgqcyu2g" path="res://Scripts/Player/State.gd" id="6_w2p0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek5qi"]
 size = Vector2(18.333332, 18.47132)
@@ -184,22 +181,6 @@ sprite_frames = SubResource("SpriteFrames_ixq6f")
 animation = &"Fall"
 autoplay = "Idle"
 
-[node name="StateMachine" type="Node" parent="Player"]
-script = ExtResource("4_4ondg")
-metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"
-
-[node name="Idle" type="Node" parent="Player/StateMachine"]
-script = ExtResource("5_w2p0w")
-metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
-
-[node name="Walk" type="Node" parent="Player/StateMachine"]
-script = ExtResource("6_w2p0w")
-metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
-
-[node name="Jump" type="Node" parent="Player/StateMachine"]
-script = ExtResource("6_w2p0w")
-metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
-
 [node name="Item" type="RigidBody2D" parent="."]
 position = Vector2(80, -55)
 collision_layer = 8
@@ -215,5 +196,3 @@ shape = SubResource("CircleShape2D_fwbb7")
 sprite_frames = SubResource("SpriteFrames_2ylpc")
 animation = &"moving"
 autoplay = "moving"
-
-[node name="ProjectManager" type="Node" parent="."]

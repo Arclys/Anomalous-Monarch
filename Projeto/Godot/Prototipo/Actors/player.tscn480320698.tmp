@@ -1,12 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=17 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_xk7p5"]
 [ext_resource type="Script" uid="uid://bt0lc5umv14qg" path="res://Scripts/Camera2D.gd" id="2_xmrs8"]
 [ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Assets/Player/sprPlayer-SpriteSheet.png" id="3_ocf2f"]
 [ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Player/StateMachine.gd" id="4_4bcxw"]
-[ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Player/Idle.gd" id="5_1c8hm"]
-[ext_resource type="Script" uid="uid://odbunf814itq" path="res://Scripts/Player/Walk.gd" id="6_1c8hm"]
-[ext_resource type="Script" uid="uid://bqwwq2nug64h" path="res://Scripts/Player/Jump.gd" id="7_sinrj"]
+[ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Player/idle.gd" id="5_1c8hm"]
+[ext_resource type="Script" uid="uid://cp53tkgqcyu2g" path="res://Scripts/Player/State.gd" id="6_sinrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a48co"]
 size = Vector2(11, 12)
@@ -127,9 +126,9 @@ script = ExtResource("5_1c8hm")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("6_1c8hm")
+script = ExtResource("6_sinrj")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
 
 [node name="Jump" type="Node" parent="StateMachine"]
-script = ExtResource("7_sinrj")
+script = ExtResource("6_sinrj")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
