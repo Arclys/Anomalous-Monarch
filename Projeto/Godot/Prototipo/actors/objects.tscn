@@ -216,4 +216,4 @@ sprite_frames = SubResource("SpriteFrames_2ylpc")
 animation = &"moving"
 autoplay = "moving"
 
-[node name="ProjectManager" type="Node2D" parent="."]
+[node name="ProjectManager" type="Node" parent="."]

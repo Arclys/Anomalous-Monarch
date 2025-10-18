@@ -1,7 +1,7 @@
 extends Control
 
 func _start_pressed() -> void:
-	get_tree().change_scene_to_file("res://rooms/Room1.tscn")
+	get_tree().change_scene_to_file("res://Rooms/Room01.tscn")
 func _quit_pressed() -> void:
 	get_tree().quit()
 func _credits_pressed() -> void:

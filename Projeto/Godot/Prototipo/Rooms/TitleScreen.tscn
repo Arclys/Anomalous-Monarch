@@ -1,13 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw2roy32jn35h"]
+[gd_scene load_steps=13 format=3 uid="uid://cw2roy32jn35h"]
 
 [ext_resource type="Script" uid="uid://bmt74pmvman41" path="res://Scripts/TitleScreen.gd" id="1_1xr1c"]
 [ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Assets/Backgrounds/layer6.png" id="1_pkhjh"]
-[ext_resource type="Texture2D" path="res://sprites/player/sprPlayerTitle.png" id="2_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://bo5hak024bqr2" path="res://Assets/Player/sprPlayerTitle.png" id="2_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://mq63n1evwpsg" path="res://Assets/TitleScreen/Main/Logo.png" id="3_ju6c8"]
 [ext_resource type="Texture2D" uid="uid://y3fyy8vr6rjq" path="res://Assets/TitleScreen/Main/sprButtonStart.png" id="3_skwql"]
 [ext_resource type="Texture2D" uid="uid://bo2pjqb5jdhue" path="res://Assets/TitleScreen/Main/sprPlayerIdle.png" id="4_6iguo"]
 [ext_resource type="Texture2D" uid="uid://bw3307226ehuk" path="res://Assets/TitleScreen/Main/sprButtonQuit.png" id="5_g3l3g"]
 
+[sub_resource type="Theme" id="Theme_okfv0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bchrq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="Theme" id="Theme_skwql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by6yn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxsjh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -42,28 +54,37 @@ theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = -195
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/separation = 38
 
 [node name="imgTitle" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ju6c8")
 
 [node name="buttonStart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_okfv0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("3_skwql")
 icon_alignment = 1
 
 [node name="buttonCredits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_skwql")
+theme_override_styles/normal = SubResource("StyleBoxFlat_by6yn")
 icon = ExtResource("4_6iguo")
 autowrap_trim_flags = 192
 icon_alignment = 1
 
 [node name="buttonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lxsjh")
 icon = ExtResource("5_g3l3g")
 icon_alignment = 1
 
