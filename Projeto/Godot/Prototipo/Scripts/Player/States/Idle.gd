@@ -1,17 +1,18 @@
 extends State
 
-@onready var player: Player = get_parent().get_parent()
 
-func begin_process() -> void:
+
+func begin_update() -> void:
 	player.sprite.play("Idle")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _update(delta: float) -> void:
 	if get_parent().get_parent().direction:
 		pass
 
-func _physics_process(delta: float) -> void:
+func _physics_update(delta: float) -> void:
+	if not(player.is_on_floor()):
+		state_machine.state_changer("jump")
 	player.move_and_slide()
-func end_process() -> void:
-	pass
+
+

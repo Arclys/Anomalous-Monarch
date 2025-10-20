@@ -1,20 +1,15 @@
 class_name State extends Node
 
-
+@onready var player: Player = get_parent().get_parent()
 var state_machine: StateMachine
 # Inicio do Loop
-func begin_process() -> void: 
+func _begin_update() -> void: 
 	pass
 	
 # Loop básico
-func _process(delta: float) -> void:
+func _update(delta: float) -> void:
 	pass
-	
 	
 # Loop da física	
-func _physics_process(delta: float) -> void:
-	pass
-	
-# Fim do Loop
-func end_process() -> void:
+func _physics_update(delta: float) -> void:
 	pass

@@ -1,3 +1,5 @@
+extends Node
+
 @export var player_hp: int = 1
 @export var player_state: int = 0
 var player_on_floor: bool = false

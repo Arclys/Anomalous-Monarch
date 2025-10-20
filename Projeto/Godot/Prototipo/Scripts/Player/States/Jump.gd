@@ -8,4 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if player.velocity.y < 0:
+		state_machine.state_changer("fall")
+	if player.is_on_floor():
+		state_machine.state_changer("idle")
