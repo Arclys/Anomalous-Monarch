@@ -95,7 +95,6 @@ animations = [{
 position = Vector2(0, -1)
 collision_mask = 6
 script = ExtResource("1_xk7p5")
-speed = 20.0
 jump_speed = 30.0
 mass = 0.9
 
@@ -118,11 +117,12 @@ editor_draw_drag_margin = true
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_aef5f")
-animation = &"Walk"
+animation = &"Idle"
 autoplay = "Idle"
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("begin_state")]
 script = ExtResource("4_4bcxw")
+begin_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"
 
 [node name="Idle" type="Node" parent="StateMachine"]

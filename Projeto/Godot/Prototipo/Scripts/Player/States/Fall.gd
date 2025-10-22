@@ -1,14 +1,16 @@
 extends State
 
 
-# Called when the node enters the scene tree for the first time.
 func _begin_update() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _update(delta: float) -> void:
 	player.sprite.play("Fall")
+ 
+func _update(delta: float) -> void:
+	pass
 
 func _physics_update(delta: float) -> void:
-	pass
+	player.velocity.x = player.move(player.speed,0.5,delta)
+	player.move_and_slide()
+
+func _end_update() -> void:
+	if on_ground(): state_machine.state_changer('idle')
+	if jumping(): state_machine.state_changer('jump')
