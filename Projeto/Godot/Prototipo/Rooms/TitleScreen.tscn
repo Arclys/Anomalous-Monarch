@@ -71,6 +71,8 @@ texture = ExtResource("3_ju6c8")
 layout_mode = 2
 theme = SubResource("Theme_okfv0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("3_skwql")
 icon_alignment = 1
 
@@ -78,6 +80,8 @@ icon_alignment = 1
 layout_mode = 2
 theme = SubResource("Theme_skwql")
 theme_override_styles/normal = SubResource("StyleBoxFlat_by6yn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("4_6iguo")
 autowrap_trim_flags = 192
 icon_alignment = 1
@@ -85,6 +89,8 @@ icon_alignment = 1
 [node name="buttonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_lxsjh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("5_g3l3g")
 icon_alignment = 1
 
