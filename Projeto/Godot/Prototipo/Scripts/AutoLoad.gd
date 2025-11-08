@@ -1,8 +1,14 @@
+extends Node
+
 @export var player_hp: int = 1
 @export var player_state: int = 0
 var player_on_floor: bool = false
-#@onready var sprite: AnimatedSprite2D = $Player/Sprite
-var hitable: bool = true
+var player_hitable: bool = true
+
+const ROOMS: Dictionary[Array,Array] = {
+	[]:[]
+} 
+
 func _ready() -> void:
 	pass
 

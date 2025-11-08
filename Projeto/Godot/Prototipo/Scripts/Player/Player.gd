@@ -1,44 +1,23 @@
-class_name Player extends CharacterBody2D
+extends CharacterBody2D
+class_name Player
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 
-var direction = Input.get_axis("ui_left", "ui_right")
-const SPEED = 80.0
-const JUMP_VELOCITY = -230.0
+@export var speed: float = 60.0
+@export var jump_force: float = 250.0
+@export var gravity: float = 500.0  # valor da gravidade
+
+var direction: float = 0.0
+var jump: bool = false
 
 func _physics_process(delta: float) -> void:
+	# Captura de inputs
+	direction = Input.get_axis("m_left", "m_right")
+	jump = Input.is_action_just_pressed("m_up")
 	
-	
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += (get_gravity() * delta) * .5
+func move(target_speed: float, acceleration: float, delta: float) -> Vector2:
+	var target_velocity = Vector2(direction * target_speed, velocity.y)
+	return velocity.lerp(target_velocity, acceleration * delta)
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	#region
-	if direction < 0:
-		sprite.flip_h = true
-	elif direction > 0:
-		sprite.flip_h = false
-	
-	if velocity.y > 0:
-		sprite.play("Fall")
-	elif velocity.y < 0:
-		sprite.play("Jump")
-	elif direction != 0:
-		sprite.play("Walk")
-	#endregion
-	move_and_slide()
-
-func horizon_move(speed: float, acelleration: float, delta: float) -> void:
-	velocity = lerp(speed, velocity * direction, acelleration * delta)
+func apply_gravity(delta: float) -> void:
+	velocity.y += gravity * delta

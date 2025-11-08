@@ -1,9 +1,10 @@
-class_name StateMachine extends Node
+extends Node
+class_name StateMachine
 
  # Define todos os sprites do player em uma variável
 @export var begin_state: State # "@export" Deixa primeiro estado visivel no inspetor
 var actual_state: State
-var states_list: Dictionary[String,State] = {} #Lista de estados
+var states_list: Dictionary[String,State] = {"idle":begin_state} #Lista de estados
 
 
 func _ready() -> void: 
@@ -12,16 +13,16 @@ func _ready() -> void:
 			i.state_machine = self
 			states_list[i.name.to_lower()] = i
 	if begin_state: # Define o estado inicial como o atual (só pra não dar erro caso alguém esqueça)
-		begin_state.begin_process()
+		begin_state._begin_update()
 		actual_state = begin_state
 
 			
-func _process(delta: float) -> void: #Atualiza gráficos
+func _process(delta: float) -> void: # Atualiza gráficos
 	if actual_state:
-		actual_state.update(delta)
-func _physics_process(delta: float) -> void:#Atualiza física
+		actual_state._update(delta)
+func _physics_process(delta: float) -> void: # Atualiza física
 	if actual_state:
-		actual_state.physics_update(delta)
+		actual_state._physics_update(delta)
 
 # Troca de estados		
 func state_changer(new_state_name: String) -> void:
@@ -31,7 +32,7 @@ func state_changer(new_state_name: String) -> void:
 	# assert(new_state, "O estado a seguir não foi encontrado: " + new_state_name)
 	
 	if actual_state: # Interrompe state atual
-		actual_state.exit()
+		actual_state._end_update()
 		
-	new_state.begin_process() # inicializa o state novo
+	new_state._begin_update() # inicializa o state novo
 	actual_state = new_state # muda o valor da varável :P
