@@ -29,7 +29,7 @@ func jumping() -> bool:
 	return on_ground() && player.jump
 
 func walking() -> bool:
-	return player.direction != 0
+	return player.velocity.x != 0
 
 func stopped() -> bool:
 	return on_ground() && player.direction == 0
@@ -39,3 +39,7 @@ func falling() -> bool:
 
 func going_up() -> bool:
 	return player.velocity.y < 0
+
+func flip_sprite() -> void:
+	if player.velocity.x != 0:
+		player.sprite.scale.x = sign(player.velocity.x)
