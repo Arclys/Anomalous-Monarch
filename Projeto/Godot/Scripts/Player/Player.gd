@@ -3,12 +3,20 @@ class_name Player
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+# VARIAVEIS SIMPLES
 @export var speed: float = 80.0
 @export var jump_force: float = 250.0
 @export var gravity: float = 500.0  # valor da gravidade
+@export var max_hp: int = 5
+@export var knockback_force: int = 20
 
+var actual_hp: int = max_hp
 var direction: float = 0.0
 var jump: bool = false
+var hitabble: bool = true
+
+# ALARMES?
+signal hp_changed(value: int, max_value: int)
 
 func _physics_process(delta: float) -> void:
 	# Captura de inputs

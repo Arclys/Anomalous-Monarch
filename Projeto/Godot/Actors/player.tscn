@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=20 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_xk7p5"]
-[ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Assets/Player/sprPlayer-SpriteSheet.png" id="3_ocf2f"]
+[ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Sprites/Player/sprPlayer-SpriteSheet.png" id="3_ocf2f"]
 [ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Player/StateMachine.gd" id="4_4bcxw"]
 [ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Player/States/Idle.gd" id="5_1c8hm"]
 [ext_resource type="Script" uid="uid://odbunf814itq" path="res://Scripts/Player/States/Walk.gd" id="6_1c8hm"]
 [ext_resource type="Script" uid="uid://bqwwq2nug64h" path="res://Scripts/Player/States/Jump.gd" id="7_sinrj"]
 [ext_resource type="Script" uid="uid://d2rrdvtnraw52" path="res://Scripts/Player/States/Fall.gd" id="8_ks2ow"]
-[ext_resource type="Script" uid="uid://cp53tkgqcyu2g" path="res://Scripts/Player/States/State.gd" id="9_tvot5"]
+[ext_resource type="Script" uid="uid://b24dwxuqyf74c" path="res://Scripts/Player/States/Hit.gd" id="9_ks2ow"]
+[ext_resource type="Script" uid="uid://cp53tkgqcyu2g" path="res://Scripts/Player/State.gd" id="9_tvot5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a48co"]
 size = Vector2(11, 12)
@@ -142,4 +143,8 @@ metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("9_tvot5")
+metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
+
+[node name="Hit" type="Node" parent="StateMachine"]
+script = ExtResource("9_ks2ow")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"

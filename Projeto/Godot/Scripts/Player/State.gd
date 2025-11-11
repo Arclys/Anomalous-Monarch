@@ -29,7 +29,7 @@ func jumping() -> bool:
 	return on_ground() && player.jump
 
 func walking() -> bool:
-	return player.velocity.x != 0
+	return player.direction != 0
 
 func stopped() -> bool:
 	return on_ground() && player.direction == 0
@@ -43,3 +43,7 @@ func going_up() -> bool:
 func flip_sprite() -> void:
 	if player.velocity.x != 0:
 		player.sprite.scale.x = sign(player.velocity.x)
+
+func take_damage(amount: int) -> void:
+	player.actual_hp = clamp(player.actual_hp - amount, 0, player.max_hp)
+	player.changed
