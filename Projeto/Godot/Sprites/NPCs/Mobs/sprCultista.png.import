@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://css3nfmtmja37"
-path="res://.godot/imported/backgroundColor.png-b20bccd51c9c2ef29d884bf28cb0c57c.ctex"
+uid="uid://bghgncwtax1uh"
+path="res://.godot/imported/sprCultista.png-6412d183b31f54c9e780e46016af517e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Backgrounds/backgroundColor.png"
-dest_files=["res://.godot/imported/backgroundColor.png-b20bccd51c9c2ef29d884bf28cb0c57c.ctex"]
+source_file="res://Sprites/NPCs/Mobs/sprCultista.png"
+dest_files=["res://.godot/imported/sprCultista.png-6412d183b31f54c9e780e46016af517e.ctex"]
 
 [params]
 

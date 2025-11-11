@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4f80xqcj1hwe"
-path="res://.godot/imported/sprSoul.png-ca9beae0f0c87c31db11284134f30c8c.ctex"
+uid="uid://bw3307226ehuk"
+path="res://.godot/imported/sprButtonQuit.png-fa1e565da6bf1afe51de7804f005311c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/sprSoul.png"
-dest_files=["res://.godot/imported/sprSoul.png-ca9beae0f0c87c31db11284134f30c8c.ctex"]
+source_file="res://Sprites/TitleScreen/Main/sprButtonQuit.png"
+dest_files=["res://.godot/imported/sprButtonQuit.png-fa1e565da6bf1afe51de7804f005311c.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1dab6ct7kc45"
-path="res://.godot/imported/tileInterregnoRock.png-071882b1e6ef8dc15a18682d25da2cf2.ctex"
+path="res://.godot/imported/tileInterregnoRock.png-cfecabb4b53e7fa469cc349f0b10f637.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/tileInterregnoRock.png"
-dest_files=["res://.godot/imported/tileInterregnoRock.png-071882b1e6ef8dc15a18682d25da2cf2.ctex"]
+source_file="res://Sprites/Tiles/tileInterregnoRock.png"
+dest_files=["res://.godot/imported/tileInterregnoRock.png-cfecabb4b53e7fa469cc349f0b10f637.ctex"]
 
 [params]
 

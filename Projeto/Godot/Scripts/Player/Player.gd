@@ -3,7 +3,7 @@ class_name Player
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 
-@export var speed: float = 60.0
+@export var speed: float = 80.0
 @export var jump_force: float = 250.0
 @export var gravity: float = 500.0  # valor da gravidade
 

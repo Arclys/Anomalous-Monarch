@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghgncwtax1uh"
-path="res://.godot/imported/sprCultista.png-9cd594be4317cc62ee37e1307cf7c5cc.ctex"
+uid="uid://crr3kkegw17m"
+path="res://.godot/imported/sprPlayer-SpriteSheet.png-ec663bce89277085c0ea111b0d83923b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPCs/Mobs/sprCultista.png"
-dest_files=["res://.godot/imported/sprCultista.png-9cd594be4317cc62ee37e1307cf7c5cc.ctex"]
+source_file="res://Sprites/Player/sprPlayer-SpriteSheet.png"
+dest_files=["res://.godot/imported/sprPlayer-SpriteSheet.png-ec663bce89277085c0ea111b0d83923b.ctex"]
 
 [params]
 
