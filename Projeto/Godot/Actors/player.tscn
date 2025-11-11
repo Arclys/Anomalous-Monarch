@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=23 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_xk7p5"]
 [ext_resource type="Texture2D" uid="uid://crr3kkegw17m" path="res://Sprites/Player/sprPlayer-SpriteSheet.png" id="3_ocf2f"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://d2rrdvtnraw52" path="res://Scripts/Player/States/Fall.gd" id="8_ks2ow"]
 [ext_resource type="Script" uid="uid://b24dwxuqyf74c" path="res://Scripts/Player/States/Hit.gd" id="9_ks2ow"]
 [ext_resource type="Script" uid="uid://cp53tkgqcyu2g" path="res://Scripts/Player/State.gd" id="9_tvot5"]
+[ext_resource type="Texture2D" uid="uid://d804e2bl7e5f" path="res://Sprites/HUD/sprEmptyHPBar.png" id="10_6kbgh"]
+[ext_resource type="Texture2D" uid="uid://defjvdbsypcg" path="res://Sprites/HUD/sprFullHPBar.png" id="10_c5kq5"]
+[ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Player/hp_bar_circle.gd" id="11_6kbgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a48co"]
 size = Vector2(11, 12)
@@ -148,3 +151,32 @@ metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
 [node name="Hit" type="Node" parent="StateMachine"]
 script = ExtResource("9_ks2ow")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="HPContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CircleUI" type="Control" parent="HUD/HPContainer"]
+layout_mode = 2
+
+[node name="HPBarCircle" type="TextureProgressBar" parent="HUD/HPContainer/CircleUI"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 30.0
+offset_bottom = 29.0
+fill_mode = 4
+texture_under = ExtResource("10_6kbgh")
+texture_progress = ExtResource("10_c5kq5")
+script = ExtResource("11_6kbgh")

@@ -45,5 +45,7 @@ func flip_sprite() -> void:
 		player.sprite.scale.x = sign(player.velocity.x)
 
 func take_damage(amount: int) -> void:
-	player.actual_hp = clamp(player.actual_hp - amount, 0, player.max_hp)
-	player.changed
+	var hp: int = player.actual_hp
+	var hp_max: int = player.max_hp
+	hp = clamp(hp - amount, 0, hp_max)
+	player.hp_changed.emit(player.actual_hp, player.max_hp)

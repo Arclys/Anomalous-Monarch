@@ -10,7 +10,7 @@ class_name Player
 @export var max_hp: int = 5
 @export var knockback_force: int = 20
 
-var actual_hp: int = max_hp
+var actual_hp: int = 2
 var direction: float = 0.0
 var jump: bool = false
 var hitabble: bool = true
