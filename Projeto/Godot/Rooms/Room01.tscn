@@ -389,6 +389,8 @@ sources/2 = SubResource("TileSetAtlasSource_pxm6f")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Transition" type="Sprite2D" parent="."]
+
 [node name="Parallax" type="Node2D" parent="."]
 
 [node name="01" type="Parallax2D" parent="Parallax"]
@@ -446,7 +448,7 @@ texture = ExtResource("1_pxm6f")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_2ccuf")]
-position = Vector2(39, 223)
+position = Vector2(78, 292)
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 
