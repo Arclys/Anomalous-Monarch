@@ -6,6 +6,8 @@ class_name StateMachine
 var actual_state: State
 var states_list: Dictionary[String,State] = {"idle":begin_state} #Lista de estados
 
+signal state_changed(old: String, new: String) 
+# ^ cria um sinal/evento pra ser ativado quando estado mudado.
 
 func _ready() -> void: 
 	for i in get_children(): # Essa parte coloca todos os states criados dentro da lista de states
@@ -36,3 +38,6 @@ func state_changer(new_state_name: String) -> void:
 		
 	new_state._begin_update() # inicializa o state novo
 	actual_state = new_state # muda o valor da varável :P
+
+	state_changed.emit(actual_state.name, new_state.name) # chama o sinal
+	# .name retorna o nome do enum/State
