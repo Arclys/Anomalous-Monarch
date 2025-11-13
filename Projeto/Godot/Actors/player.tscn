@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://defjvdbsypcg" path="res://Sprites/HUD/sprFullHPBar.png" id="10_c5kq5"]
 [ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Player/hp_bar_circle.gd" id="11_6kbgh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a48co"]
-size = Vector2(11, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kbgh"]
+radius = 4.0
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_effqc"]
 atlas = ExtResource("3_ocf2f")
@@ -102,7 +103,7 @@ script = ExtResource("1_xk7p5")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_a48co")
+shape = SubResource("CapsuleShape2D_6kbgh")
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -50)
