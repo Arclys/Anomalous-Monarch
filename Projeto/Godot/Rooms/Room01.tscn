@@ -389,13 +389,12 @@ sources/2 = SubResource("TileSetAtlasSource_pxm6f")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Transition" type="Sprite2D" parent="."]
-
 [node name="Parallax" type="Node2D" parent="."]
 
 [node name="01" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(256, 128)
+autoscroll = Vector2(4, 1)
 repeat_times = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/01"]

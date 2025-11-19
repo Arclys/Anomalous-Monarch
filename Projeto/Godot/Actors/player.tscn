@@ -110,7 +110,7 @@ zoom = Vector2(3, 3)
 limit_enabled = false
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 2.5
+position_smoothing_speed = 3.0
 rotation_smoothing_enabled = true
 drag_left_margin = 0.25
 drag_right_margin = 0.25
@@ -153,8 +153,6 @@ script = ExtResource("9_ks2ow")
 metadata/_custom_type_script = "uid://cp53tkgqcyu2g"
 
 [node name="HUD" type="CanvasLayer" parent="."]
-scale = Vector2(3, 3)
-transform = Transform2D(3, 0, 0, 3, 0, 0)
 
 [node name="HPContainer" type="MarginContainer" parent="HUD"]
 anchors_preset = 15
@@ -180,3 +178,9 @@ fill_mode = 4
 texture_under = ExtResource("10_6kbgh")
 texture_progress = ExtResource("10_c5kq5")
 script = ExtResource("11_6kbgh")
+
+[node name="Transition" type="ColorRect" parent="HUD"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

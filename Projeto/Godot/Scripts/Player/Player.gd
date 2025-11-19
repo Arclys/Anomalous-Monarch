@@ -9,12 +9,14 @@ class_name Player
 @export var gravity: float = 500.0  # valor da gravidade
 @export var max_hp: int = 5
 @export var knockback_force: Vector2i = Vector2i(30,50)
-
+@export var knockback_duration: float = 2.0
 var actual_hp: int = max_hp
 var direction: float = 0.0
 var jump: bool = false
 var hitabble: bool = true
 var sprite_direction: int = sign(velocity.x)
+var knockback_time: float = 0.0
+
 # ALARMES?
 signal hp_changed(value: int, max_value: int)
 
