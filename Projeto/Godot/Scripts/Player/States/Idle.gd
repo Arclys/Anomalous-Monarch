@@ -9,6 +9,8 @@ func _begin_update() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:
+	if death(): state_machine.state_changer("death")
+	if attack(): state_machine.state_changer("hit")
 	if walking(): state_machine.state_changer("walk")
 	if not(on_ground()): state_machine.state_changer("fall")
 	if jumping(): state_machine.state_changer("jump")

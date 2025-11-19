@@ -5,6 +5,7 @@ func _begin_update() -> void:
 	player.sprite.play("Fall")
  
 func _update(delta: float) -> void:
+	if attack(): state_machine.state_changer('hit')
 	if on_ground(): state_machine.state_changer('idle')
 	if jumping(): state_machine.state_changer('jump')
 	flip_sprite()

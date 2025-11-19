@@ -45,7 +45,15 @@ func flip_sprite() -> void:
 		player.sprite.scale.x = sign(player.velocity.x)
 
 func take_damage(amount: int) -> void:
-	var hp: int = player.actual_hp
-	var hp_max: int = player.max_hp
-	hp = clamp(hp - amount, 0, hp_max)
-	player.hp_changed.emit(player.actual_hp, player.max_hp)
+	
+	Master.hp = clamp(Master.hp - amount, 0, Master.max.hp)
+	Master.hp_changed.emit(Master.hp, Master.max_hp)
+
+func attack() -> bool:
+	return player.attack
+
+func death() -> bool:
+	return Master.player_hp <= 0
+
+func animation_ended(function: Callable) -> void:
+	player.sprite.connect("animation_finished", function)	

@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://cw2roy32jn35h"]
 
 [ext_resource type="Script" uid="uid://bmt74pmvman41" path="res://Scripts/Menus/TitleScreen.gd" id="1_1xr1c"]
-[ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Assets/Backgrounds/layer6.png" id="1_pkhjh"]
-[ext_resource type="Texture2D" uid="uid://bo5hak024bqr2" path="res://Assets/Player/sprPlayerTitle.png" id="2_1xr1c"]
-[ext_resource type="Texture2D" uid="uid://mq63n1evwpsg" path="res://Assets/TitleScreen/Main/Logo.png" id="3_ju6c8"]
-[ext_resource type="Texture2D" uid="uid://y3fyy8vr6rjq" path="res://Assets/TitleScreen/Main/sprButtonStart.png" id="3_skwql"]
-[ext_resource type="Texture2D" uid="uid://bo2pjqb5jdhue" path="res://Assets/TitleScreen/Main/sprPlayerIdle.png" id="4_6iguo"]
-[ext_resource type="Texture2D" uid="uid://bw3307226ehuk" path="res://Assets/TitleScreen/Main/sprButtonQuit.png" id="5_g3l3g"]
+[ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Sprites/Backgrounds/layer6.png" id="1_pkhjh"]
+[ext_resource type="Texture2D" uid="uid://bo5hak024bqr2" path="res://Sprites/Player/sprPlayerTitle.png" id="2_1xr1c"]
+[ext_resource type="Texture2D" uid="uid://mq63n1evwpsg" path="res://Sprites/TitleScreen/Main/Logo.png" id="3_ju6c8"]
+[ext_resource type="Texture2D" uid="uid://y3fyy8vr6rjq" path="res://Sprites/TitleScreen/Main/sprButtonStart.png" id="3_skwql"]
+[ext_resource type="Texture2D" uid="uid://bo2pjqb5jdhue" path="res://Sprites/TitleScreen/Main/sprPlayerIdle.png" id="4_6iguo"]
+[ext_resource type="Texture2D" uid="uid://bw3307226ehuk" path="res://Sprites/TitleScreen/Main/sprButtonQuit.png" id="5_g3l3g"]
 
 [sub_resource type="Theme" id="Theme_okfv0"]
 
