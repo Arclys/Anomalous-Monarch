@@ -14,8 +14,8 @@
 [ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Player/hp_bar_circle.gd" id="11_6kbgh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kbgh"]
-radius = 4.0
-height = 14.0
+radius = 5.5
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_effqc"]
 atlas = ExtResource("3_ocf2f")
@@ -113,6 +113,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 rotation_smoothing_enabled = true
+rotation_smoothing_speed = 7.5
 drag_left_margin = 0.25
 drag_right_margin = 0.25
 editor_draw_limits = true
