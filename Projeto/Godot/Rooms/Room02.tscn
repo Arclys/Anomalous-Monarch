@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bu66d81jtp1fx"]
+[gd_scene load_steps=16 format=4 uid="uid://bu66d81jtp1fx"]
 
 [ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Sprites/Backgrounds/layer6.png" id="1_c5nws"]
 [ext_resource type="Texture2D" uid="uid://da4dwfnr3nikp" path="res://Sprites/Backgrounds/layer5.png" id="2_5t6xu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4xxyb4c4bh8" path="res://Actors/player.tscn" id="9_d18e1"]
 [ext_resource type="PackedScene" uid="uid://d4m6bb21xj0g8" path="res://Actors/item.tscn" id="10_8gxgd"]
 [ext_resource type="PackedScene" uid="uid://bsj18ajkhlt5l" path="res://Actors/spike.tscn" id="11_5t6xu"]
+[ext_resource type="PackedScene" uid="uid://b2x7a1xwgrhjb" path="res://Actors/enemy.tscn" id="12_hv0sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5jfb"]
 texture = ExtResource("7_8psw6")
@@ -380,7 +381,7 @@ texture = ExtResource("8_fhjqt")
 5:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pxm6f"]
-physics_layer_0/collision_layer = 2
+physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Interregno"
@@ -475,3 +476,6 @@ position = Vector2(1224, 920)
 
 [node name="Spike5" parent="." instance=ExtResource("11_5t6xu")]
 position = Vector2(1208, 920)
+
+[node name="Enemy" parent="." instance=ExtResource("12_hv0sb")]
+position = Vector2(264, 775)

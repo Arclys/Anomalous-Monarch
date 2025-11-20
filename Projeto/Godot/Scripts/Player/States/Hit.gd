@@ -5,23 +5,24 @@ func _begin_update() -> void:
 	Master.global_time = Time.get_ticks_msec() / 1000.0
 	Master.player_hp -= 1.
 	if Master != null: Master.player_hitabble = false
-	player.knockback_time = 0.
-	player.velocity = Vector2.ZERO
-	player.velocity = Vector2(-player.knockback_direction * player.knockback_force.x, player.knockback_force.y)
+	character.knockback_time = 0.
+	character.velocity = Vector2.ZERO
+	character.velocity = Vector2(-character.knockback_dir * character.knockback_force.x, character.knockback_force.y)
 	
 	
-	player.sprite.play("Hit")
+	character.sprite.play("Hit")
 
 func _update(delta: float) -> void:
-	if death(): state_machine.state_changer("death")
-	if on_ground(): state_machine.state_changer("idle")
-# Loop da física	
-func _physics_update(delta: float) -> void:
+	if death(): state_machine.state_changer("death"); return
+	if on_ground(): state_machine.state_changer("idle"); return
+	iframes_execute()
 	
-	player.apply_gravity(delta)
-	player.move_and_slide()
+# Loop da física
+func _physics_update(delta: float) -> void:
+	character.apply_gravity(delta)
+	character.move_and_slide()
+
 # Fim do Estado
 func _end_update() -> void:
 	Master.player_hitabble = true
-	
-	player.sprite.modulate.a = 1.
+	character.sprite.modulate.a = 1.

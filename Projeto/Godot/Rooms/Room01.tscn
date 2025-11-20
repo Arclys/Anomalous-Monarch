@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cwarjtpp630e"]
+[gd_scene load_steps=15 format=4 uid="uid://cwarjtpp630e"]
 
 [ext_resource type="Texture2D" uid="uid://b1dab6ct7kc45" path="res://Sprites/Tiles/tileInterregnoRock.png" id="1_7h4cn"]
 [ext_resource type="Texture2D" uid="uid://btal40uc7357o" path="res://Sprites/Backgrounds/layer1.png" id="1_pxm6f"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://wmgpwytjxoo2" path="res://Sprites/Backgrounds/layer4.png" id="4_a48co"]
 [ext_resource type="Texture2D" uid="uid://da4dwfnr3nikp" path="res://Sprites/Backgrounds/layer5.png" id="5_aef5f"]
 [ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Sprites/Backgrounds/layer6.png" id="6_onuvs"]
+[ext_resource type="PackedScene" uid="uid://b2x7a1xwgrhjb" path="res://Actors/enemy.tscn" id="11_gdmvq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5jfb"]
 texture = ExtResource("1_7h4cn")
@@ -377,7 +378,7 @@ texture = ExtResource("2_n5jfb")
 5:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pxm6f"]
-physics_layer_0/collision_layer = 2
+physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Interregno"
@@ -447,7 +448,7 @@ texture = ExtResource("1_pxm6f")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_2ccuf")]
-position = Vector2(78, 292)
+position = Vector2(79, 275)
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 
@@ -457,3 +458,6 @@ tile_set = SubResource("TileSet_pxm6f")
 
 [node name="Item" parent="." instance=ExtResource("3_uh4mp")]
 position = Vector2(139, -54)
+
+[node name="Enemy" parent="." instance=ExtResource("11_gdmvq")]
+position = Vector2(156, 293)

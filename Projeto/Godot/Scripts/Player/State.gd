@@ -1,6 +1,7 @@
-class_name State extends Node
+extends Node
+class_name State 
 
-@onready var player: Player = get_parent().get_parent()
+@onready var character: Player = get_parent().get_parent()
 var state_machine: StateMachine
 
 # Inicio do Estado
@@ -22,38 +23,47 @@ func _end_update() -> void:
 # Funções para troca de estado
 
 func on_ground() -> bool:
-	return player.is_on_floor()
+	return character.is_on_floor()
 				
 
 func jumping() -> bool:
-	return on_ground() && player.jump
+	return on_ground() && character.jump
 
 func walking() -> bool:
-	return player.direction != 0
+	return character.move_dir != 0
 
 func stopped() -> bool:
-	return on_ground() && player.direction == 0
+	return on_ground() && character.move_dir == 0
 	
 func falling() -> bool:
-	return player.velocity.y > 0
+	return character.velocity.y > 0
 
 func going_up() -> bool:
-	return player.velocity.y < 0
+	return character.velocity.y < 0
 
 func flip_sprite() -> void:
-	if player.velocity.x != 0:
-		player.sprite.scale.x = sign(player.velocity.x)
+	if character.velocity.x != 0:
+		character.sprite.scale.x = sign(character.velocity.x)
 
 func take_damage(amount: int) -> void:
-	
 	Master.hp = clamp(Master.hp - amount, 0, Master.max.hp)
 	Master.hp_changed.emit(Master.hp, Master.max_hp)
 
 func attack() -> bool:
-	return player.attack
+	return character.attack
 
 func death() -> bool:
 	return Master.player_hp <= 0
 
 func animation_ended(function: Callable) -> void:
-	player.sprite.connect("animation_finished", function)	
+	character.sprite.connect("animation_finished", function)	
+
+func enemy_collided() -> bool:
+	var enemies = character.hit_box.get_overlapping_bodies()
+	for body in enemies:
+		if body.is_in_group("Enemies"):
+			return true
+	return false
+
+func iframes_execute():
+	character.sprite.modulate.a = 0.5 + 0.5 * sin(Time.get_ticks_msec()*2 / 100.0)

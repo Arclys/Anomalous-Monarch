@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="learn1"
 
+[global_group]
+
+Enemies=""
+
 [input]
 
 ui_left={
@@ -78,6 +82,12 @@ mb_attack={
 2d_render/layer_2="World"
 2d_render/layer_3="Enemies"
 2d_render/layer_4="Items"
+2d_physics/layer_1="Enviroment"
+2d_physics/layer_2="PlayerBody"
+2d_physics/layer_3="EnemyBody"
+2d_physics/layer_4="PlayerAttack"
+2d_physics/layer_5="EnemyAttak"
+2d_physics/layer_6="Pickup"
 
 [rendering]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://d4m6bb21xj0g8"]
 
-[ext_resource type="Texture2D" uid="uid://4f80xqcj1hwe" path="res://Assets/Items/sprSoul.png" id="2_bdsw2"]
+[ext_resource type="Texture2D" uid="uid://4f80xqcj1hwe" path="res://Sprites/Items/sprSoul.png" id="2_bdsw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onuvs"]
 radius = 15.670837
@@ -70,7 +70,8 @@ animations = [{
 }]
 
 [node name="Item" type="RigidBody2D"]
-collision_layer = 8
+collision_layer = 32
+collision_mask = 2
 gravity_scale = 0.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
