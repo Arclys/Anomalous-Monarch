@@ -394,7 +394,7 @@ sources/2 = SubResource("TileSetAtlasSource_pxm6f")
 [node name="01" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(256, 128)
-autoscroll = Vector2(4, 1)
+autoscroll = Vector2(-4, -1)
 repeat_times = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/01"]
@@ -420,7 +420,7 @@ texture = ExtResource("4_a48co")
 centered = false
 
 [node name="04" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.5, 1)
+scroll_scale = Vector2(0.4, 0.9)
 repeat_size = Vector2(256, 0)
 repeat_times = 8
 
@@ -429,7 +429,7 @@ texture = ExtResource("3_todee")
 centered = false
 
 [node name="05" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.6, 1)
+scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(256, 0)
 repeat_times = 8
 
