@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw2roy32jn35h"]
+[gd_scene load_steps=14 format=3 uid="uid://cw2roy32jn35h"]
 
 [ext_resource type="Script" uid="uid://bmt74pmvman41" path="res://Scripts/Menus/TitleScreen.gd" id="1_1xr1c"]
 [ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Sprites/Backgrounds/layer6.png" id="1_pkhjh"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bw3307226ehuk" path="res://Sprites/TitleScreen/Main/sprButtonQuit.png" id="5_g3l3g"]
 
 [sub_resource type="Theme" id="Theme_okfv0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju6c8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bchrq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -69,10 +72,19 @@ texture = ExtResource("3_ju6c8")
 
 [node name="buttonStart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 theme = SubResource("Theme_okfv0")
-theme_override_styles/normal = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ju6c8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_bchrq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_bchrq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("3_skwql")
 icon_alignment = 1
 
@@ -90,8 +102,16 @@ icon_alignment = 1
 [node name="buttonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_lxsjh")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_bchrq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_bchrq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_bchrq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_bchrq")
 icon = ExtResource("5_g3l3g")
 icon_alignment = 1
 

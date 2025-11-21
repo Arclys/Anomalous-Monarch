@@ -18,7 +18,7 @@ config/icon="uid://byailt31p2f6i"
 
 [autoload]
 
-Master="*res://Scripts/Master.gd"
+Master="*res://Rooms/master.tscn"
 
 [display]
 

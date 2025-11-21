@@ -15,3 +15,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+@onready var audios_node = self.get_node("Audios") as Node
+func play_audio(audio: NodePath, min_pitch: float = .85, max_pitch: float = 1):
+	var node = audios_node.get_node_or_null(audio) as AudioStreamPlayer
+	node.pitch_scale = randf_range(min_pitch, max_pitch)
+	node.play()

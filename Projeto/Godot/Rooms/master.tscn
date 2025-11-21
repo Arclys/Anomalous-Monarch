@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy3nheqp6piv6"]
+
+[ext_resource type="Script" uid="uid://dfssihhjlwst2" path="res://Scripts/Master.gd" id="1_yvgvi"]
+[ext_resource type="AudioStream" uid="uid://drvxn3rmlylq4" path="res://SFX/whoosh.wav" id="2_1kygm"]
+[ext_resource type="AudioStream" uid="uid://c7mnxt0vgudjx" path="res://SFX/whool.wav" id="2_2jsdm"]
+[ext_resource type="AudioStream" uid="uid://dyvn52a7hj1ep" path="res://SFX/click.wav" id="4_vctff"]
+
+[node name="Master" type="Node"]
+script = ExtResource("1_yvgvi")
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="whool" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("2_2jsdm")
+volume_db = -30.0
+pitch_scale = 1.1
+bus = &"SFX"
+
+[node name="woosh" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("2_1kygm")
+pitch_scale = 0.85
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("4_vctff")
+pitch_scale = 0.85
+bus = &"SFX"
