@@ -1,8 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://ch4xxyb4c4bh8"]
 
-[ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Player/Player.gd" id="1_xk7p5"]
 [ext_resource type="Texture2D" uid="uid://deoj6g2n3yuww" path="res://Sprites/Player/sprPlayerSprite-Sheet.png" id="3_ocf2f"]
-[ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Player/StateMachine.gd" id="4_4bcxw"]
 [ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Player/States/Idle.gd" id="5_1c8hm"]
 [ext_resource type="Script" uid="uid://odbunf814itq" path="res://Scripts/Player/States/Walk.gd" id="6_1c8hm"]
 [ext_resource type="Script" uid="uid://bqwwq2nug64h" path="res://Scripts/Player/States/Jump.gd" id="7_sinrj"]
@@ -13,6 +11,55 @@
 [ext_resource type="Texture2D" uid="uid://d804e2bl7e5f" path="res://Sprites/HUD/sprEmptyHPBar.png" id="10_6kbgh"]
 [ext_resource type="Texture2D" uid="uid://defjvdbsypcg" path="res://Sprites/HUD/sprFullHPBar.png" id="10_c5kq5"]
 [ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Player/hp_bar_circle.gd" id="11_6kbgh"]
+
+[sub_resource type="GDScript" id="GDScript_c5kq5"]
+script/source = "extends CharacterBody2D
+class_name Player
+
+@onready var sprite: AnimatedSprite2D = $Sprite
+@onready var state_machine: StateMachine = $StateMachine
+@onready var hit_box: Area2D = $Hitbox
+
+# VARIAVEIS SIMPLES
+@export var speed: float = 80.0
+@export var jump_force: float = 250.0
+@export var gravity: float = 500.0  # valor da gravidade
+@export var max_hp: int = 5
+@export var knockback_force: Vector2 = Vector2(100,-100)
+@export var knockback_duration: float = 2.0
+
+var knockback_dir: int = 0
+var hp: int = max_hp
+var move_dir: float = 0.0
+var jump: bool = false
+var attack: bool = false
+
+var spr_dir: int = sign(velocity.x)
+var knockback_time: float = 0.0
+
+# ALARMES?
+signal hp_changed(value: int, max_value: int)
+
+# Funções 
+func _ready() -> void:
+	state_machine.state_changer(\"idle\")
+
+func _process(delta: float) -> void:
+	knockback_dir = sprite.scale.x
+
+func _physics_process(delta: float) -> void:
+	# Captura de inputs
+	move_dir = Input.get_axis(\"m_left\", \"m_right\")
+	jump = Input.is_action_just_pressed(\"m_up\")
+	attack = Input.is_action_just_pressed(\"mb_attack\")
+	
+func move(target_speed: float, acceleration: float, delta: float) -> Vector2:
+	var target_velocity = Vector2(move_dir * target_speed, velocity.y)
+	return velocity.lerp(target_velocity, acceleration * delta)
+
+func apply_gravity(delta: float) -> void:
+	velocity.y += gravity * delta
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kbgh"]
 radius = 5.5
@@ -184,13 +231,54 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="GDScript" id="GDScript_6kbgh"]
+script/source = "extends Node
+class_name StateMachine
+
+ # Define todos os sprites do player em uma variável
+@export var begin_state: State # \"@export\" Deixa primeiro estado visivel no inspetor
+var actual_state: State
+var states_list: Dictionary[String, State] = {} # Lista de estados
+
+
+func _ready() -> void: 
+	for i in get_children(): # Essa parte coloca todos os states criados dentro da lista de states
+		if i is State:
+			i.state_machine = self
+			states_list[i.name.to_lower()] = i
+	if begin_state: # Define o estado inicial como o atual (só pra não dar erro caso alguém esqueça)
+		begin_state._begin_update()
+		actual_state = begin_state
+
+			
+func _process(delta: float) -> void: # Atualiza gráficos
+	if actual_state:
+		actual_state._update(delta)
+func _physics_process(delta: float) -> void: # Atualiza física
+	if actual_state:
+		actual_state._physics_update(delta)
+
+# Troca de estados		
+func state_changer(new_state_name: String) -> void:
+	var new_state: State = states_list.get(new_state_name.to_lower()) #PEga o nome ddo novo estado, coloca em minúsculo e procura na lista de estados
+	
+	# Tira isso dos comentários caso você queira verificar se um estado não está sendo encontrado
+	# assert(new_state, \"O estado a seguir não foi encontrado: \" + new_state_name)
+	
+	if actual_state: # Interrompe state atual
+		actual_state._end_update()
+		
+	new_state._begin_update() # inicializa o state novo
+	actual_state = new_state # muda o valor da varável :P
+"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3sj5c"]
 radius = 6.519202
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -1)
 collision_layer = 2
-script = ExtResource("1_xk7p5")
+script = SubResource("GDScript_c5kq5")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
@@ -217,7 +305,7 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("begin_state")]
-script = ExtResource("4_4bcxw")
+script = SubResource("GDScript_6kbgh")
 begin_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"
 
@@ -283,6 +371,7 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 4
 

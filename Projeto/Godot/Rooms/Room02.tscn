@@ -457,19 +457,19 @@ tile_map_data = PackedByteArray("AAAEAMD/AgABAAEAAAAEAL//AgABAAAAAAADAMD/AgABAAE
 tile_set = SubResource("TileSet_pxm6f")
 
 [node name="Player" parent="." instance=ExtResource("9_d18e1")]
-position = Vector2(0, 324)
+position = Vector2(0, -3000)
 
 [node name="Item" parent="." instance=ExtResource("10_8gxgd")]
 position = Vector2(139, -54)
 
-[node name="Spike3" parent="." instance=ExtResource("11_5t6xu")]
-position = Vector2(1192, 920)
+[node name="Spike" parent="." instance=ExtResource("11_5t6xu")]
+position = Vector2(1160, 920)
 
 [node name="Spike2" parent="." instance=ExtResource("11_5t6xu")]
 position = Vector2(1176, 920)
 
-[node name="Spike" parent="." instance=ExtResource("11_5t6xu")]
-position = Vector2(1160, 920)
+[node name="Spike3" parent="." instance=ExtResource("11_5t6xu")]
+position = Vector2(1192, 920)
 
 [node name="Spike4" parent="." instance=ExtResource("11_5t6xu")]
 position = Vector2(1224, 920)
