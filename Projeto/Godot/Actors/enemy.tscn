@@ -98,7 +98,7 @@ visibility_layer = 4
 sprite_frames = SubResource("SpriteFrames_exeu0")
 animation = &"Walk"
 autoplay = "Walk"
-frame_progress = 0.112938635
+frame_progress = 0.4911644
 
 [node name="HitBox" type="Area2D" parent="."]
 light_mask = 4

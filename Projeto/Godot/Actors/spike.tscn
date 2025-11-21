@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://23w0vo3vdydo" path="res://Sprites/Tiles/sprInterregnoSpike.png" id="1_064u2"]
 
 [node name="Spike" type="StaticBody2D" groups=["Enemies"]]
+collision_layer = 4
 collision_mask = 0
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]

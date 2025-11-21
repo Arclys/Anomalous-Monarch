@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mq63n1evwpsg"
-path="res://.godot/imported/Logo.png-198bb9551dd37c08ce8ebde80bfb6791.ctex"
+uid="uid://mhpq0uxtrxu5"
+path="res://.godot/imported/sprLeftArm.png-009cb4fa077c7a84283a6aba54852d2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/TitleScreen/Main/Logo.png"
-dest_files=["res://.godot/imported/Logo.png-198bb9551dd37c08ce8ebde80bfb6791.ctex"]
+source_file="res://Sprites/NPCs/Mobs/Bosses/InterregnoBoss/sprLeftArm.png"
+dest_files=["res://.godot/imported/sprLeftArm.png-009cb4fa077c7a84283a6aba54852d2e.ctex"]
 
 [params]
 
