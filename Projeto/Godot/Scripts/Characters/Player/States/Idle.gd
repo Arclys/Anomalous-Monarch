@@ -1,4 +1,4 @@
-extends State
+extends PlayerState
 
 func _begin_update() -> void:
 	if character.sprite:

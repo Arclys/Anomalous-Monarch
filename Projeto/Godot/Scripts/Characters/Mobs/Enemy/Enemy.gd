@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 @onready var sprite: AnimatedSprite2D = $Sprite
-@onready var state_machine: EnemyStateMachine = $StateMachine
+@onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box: Area2D = $HitBox
 
 var speed: float = 10.0

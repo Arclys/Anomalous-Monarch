@@ -27,8 +27,9 @@ signal hp_changed(value: int, max_value: int)
 
 # Funções 
 func _ready() -> void:
+	Master.player = self
 	state_machine.state_changer("idle")
-
+		
 func _process(delta: float) -> void:
 	knockback_dir = sprite.scale.x
 
@@ -44,3 +45,4 @@ func move(target_speed: float, acceleration: float, delta: float) -> Vector2:
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
+

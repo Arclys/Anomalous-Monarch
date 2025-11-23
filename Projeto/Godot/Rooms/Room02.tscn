@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://btal40uc7357o" path="res://Sprites/Backgrounds/layer1.png" id="6_jvuvl"]
 [ext_resource type="Texture2D" uid="uid://b1dab6ct7kc45" path="res://Sprites/Tiles/tileInterregnoRock.png" id="7_8psw6"]
 [ext_resource type="Texture2D" uid="uid://ct1cpo3p8d67m" path="res://Sprites/Tiles/tileVoid.png" id="8_fhjqt"]
-[ext_resource type="PackedScene" uid="uid://ch4xxyb4c4bh8" path="res://Actors/player.tscn" id="9_d18e1"]
-[ext_resource type="PackedScene" uid="uid://d4m6bb21xj0g8" path="res://Actors/item.tscn" id="10_8gxgd"]
-[ext_resource type="PackedScene" uid="uid://bsj18ajkhlt5l" path="res://Actors/spike.tscn" id="11_5t6xu"]
-[ext_resource type="PackedScene" uid="uid://b2x7a1xwgrhjb" path="res://Actors/enemy.tscn" id="12_hv0sb"]
+[ext_resource type="PackedScene" uid="uid://ch4xxyb4c4bh8" path="res://Actors/Player.tscn" id="9_d18e1"]
+[ext_resource type="PackedScene" uid="uid://d4m6bb21xj0g8" path="res://Actors/Item.tscn" id="10_8gxgd"]
+[ext_resource type="PackedScene" uid="uid://bsj18ajkhlt5l" path="res://Actors/Spike.tscn" id="11_5t6xu"]
+[ext_resource type="PackedScene" uid="uid://b2x7a1xwgrhjb" path="res://Actors/Warm.tscn" id="12_hv0sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5jfb"]
 texture = ExtResource("7_8psw6")

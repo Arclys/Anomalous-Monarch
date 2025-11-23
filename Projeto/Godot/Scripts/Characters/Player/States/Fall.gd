@@ -1,4 +1,4 @@
-extends State
+extends PlayerState
 
 
 func _begin_update() -> void:
@@ -14,6 +14,7 @@ func _physics_update(delta: float) -> void:
 	character.velocity.x = character.move(character.speed,10.,delta).x
 	character.apply_gravity(delta)
 	character.move_and_slide()
+	Master.play_audio("stone_step", 0.85, 1.15)
 	
 func _end_update() -> void:
 	pass

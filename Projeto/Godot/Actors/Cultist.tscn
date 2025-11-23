@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://dx03qi5iviq34"]
+
+[ext_resource type="Script" uid="uid://oaxsoa465b33" path="res://Scripts/Characters/Mobs/Boss/Boss.gd" id="1_dxp6e"]
+[ext_resource type="Texture2D" uid="uid://bghgncwtax1uh" path="res://Sprites/NPCs/Mobs/sprCultista.png" id="1_s6aha"]
+[ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Characters/StateMachine.gd" id="2_dxp6e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey28x"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8s2l"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um22t"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmfqd"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byxfi"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2wck"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5vc"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv8h7"]
+atlas = ExtResource("1_s6aha")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kky14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey28x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8s2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um22t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmfqd")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byxfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2wck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j5vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv8h7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnx1"]
+size = Vector2(20, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro57d"]
+size = Vector2(11, 26)
+
+[node name="Cultist" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_dxp6e")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kky14")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.73826903
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_tjnx1")
+debug_color = Color(0.98170966, 0, 0.3727876, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 3
+
+[node name="HitBoxArea" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_ro57d")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_dxp6e")
+metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"

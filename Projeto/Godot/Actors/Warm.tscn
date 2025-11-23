@@ -1,13 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2x7a1xwgrhjb"]
+[gd_scene load_steps=18 format=3 uid="uid://b2x7a1xwgrhjb"]
 
-[ext_resource type="Script" uid="uid://bfql2k2q6y3qy" path="res://Scripts/Mobs/Enemy/Enemy.gd" id="1_fd1gt"]
+[ext_resource type="Script" uid="uid://bfql2k2q6y3qy" path="res://Scripts/Characters/Mobs/Enemy/Enemy.gd" id="1_fd1gt"]
 [ext_resource type="Texture2D" uid="uid://2kb3v1g8utv3" path="res://Sprites/NPCs/Mobs/sprWarm.png" id="2_gl316"]
-[ext_resource type="Script" uid="uid://dda7vt1ig1pfe" path="res://Scripts/Mobs/Enemy/EnemyStateMachine.gd" id="3_ln8fe"]
-[ext_resource type="Script" uid="uid://cegl2nv4x1ppu" path="res://Scripts/Mobs/Enemy/States/Idle.gd" id="4_63g8g"]
-[ext_resource type="Script" uid="uid://b76mffbuca2gc" path="res://Scripts/Mobs/Enemy/States/Walk.gd" id="5_y66fb"]
-[ext_resource type="Script" uid="uid://chbyxdxsyp77g" path="res://Scripts/Mobs/Enemy/States/Death.gd" id="6_6h8i7"]
-[ext_resource type="Script" uid="uid://c5je4p26gagtm" path="res://Scripts/Mobs/Enemy/States/Fall.gd" id="7_5fduf"]
-[ext_resource type="Script" uid="uid://ctfjx60s43ds0" path="res://Scripts/Mobs/Enemy/States/Hit.gd" id="8_y66fb"]
+[ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Characters/StateMachine.gd" id="3_y66fb"]
+[ext_resource type="Script" uid="uid://cegl2nv4x1ppu" path="res://Scripts/Characters/Mobs/Enemy/States/Idle.gd" id="4_63g8g"]
+[ext_resource type="Script" uid="uid://b76mffbuca2gc" path="res://Scripts/Characters/Mobs/Enemy/States/Walk.gd" id="5_y66fb"]
+[ext_resource type="Script" uid="uid://chbyxdxsyp77g" path="res://Scripts/Characters/Mobs/Enemy/States/Death.gd" id="6_6h8i7"]
+[ext_resource type="Script" uid="uid://c5je4p26gagtm" path="res://Scripts/Characters/Mobs/Enemy/States/Fall.gd" id="7_5fduf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exeu0"]
 atlas = ExtResource("2_gl316")
@@ -85,7 +84,7 @@ animations = [{
 size = Vector2(18, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63g8g"]
-size = Vector2(13, 5)
+size = Vector2(14, 5)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
@@ -112,10 +111,14 @@ shape = SubResource("RectangleShape2D_ln8fe")
 one_way_collision_margin = 71.4
 debug_color = Color(0.9795584, 0.4593473, 0.21676183, 0.41960785)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_63g8g")
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("begin_state")]
-script = ExtResource("3_ln8fe")
-begin_state = NodePath("Walk")
-metadata/_custom_type_script = "uid://dda7vt1ig1pfe"
+script = ExtResource("3_y66fb")
+begin_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_63g8g")
@@ -132,11 +135,3 @@ metadata/_custom_type_script = "uid://djsygxq8ucnyg"
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("7_5fduf")
 metadata/_custom_type_script = "uid://djsygxq8ucnyg"
-
-[node name="EnemyState" type="Node" parent="StateMachine"]
-script = ExtResource("8_y66fb")
-metadata/_custom_type_script = "uid://djsygxq8ucnyg"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4.5)
-shape = SubResource("RectangleShape2D_63g8g")

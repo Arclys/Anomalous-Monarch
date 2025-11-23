@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy3nheqp6piv6"]
+[gd_scene load_steps=6 format=3 uid="uid://dy3nheqp6piv6"]
 
 [ext_resource type="Script" uid="uid://dfssihhjlwst2" path="res://Scripts/Master.gd" id="1_yvgvi"]
 [ext_resource type="AudioStream" uid="uid://drvxn3rmlylq4" path="res://SFX/whoosh.wav" id="2_1kygm"]
 [ext_resource type="AudioStream" uid="uid://c7mnxt0vgudjx" path="res://SFX/whool.wav" id="2_2jsdm"]
 [ext_resource type="AudioStream" uid="uid://dyvn52a7hj1ep" path="res://SFX/click.wav" id="4_vctff"]
+[ext_resource type="AudioStream" uid="uid://dorv6n1xa0g6o" path="res://SFX/stone_step.wav" id="5_1os28"]
 
 [node name="Master" type="Node"]
 script = ExtResource("1_yvgvi")
@@ -25,3 +26,10 @@ bus = &"SFX"
 stream = ExtResource("4_vctff")
 pitch_scale = 0.85
 bus = &"SFX"
+
+[node name="stone_step" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("5_1os28")
+bus = &"SFX"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Audios"]
+current = true

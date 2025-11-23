@@ -1,24 +1,8 @@
-extends Node
+extends State
 class_name EnemyState
 
 @onready var enemy: Enemy = get_parent().get_parent()
-var state_machine: EnemyStateMachine
 
-# Inicio do Estado
-func _begin_update() -> void:
-	pass
-
-# Loop básico
-func _update(delta: float) -> void:
-	pass
-
-# Loop da física
-func _physics_update(delta: float) -> void:
-	pass
-
-# Fim do Estado
-func _end_update() -> void:
-	pass
 
 # Funções para troca de estado
 func on_ground() -> bool:
