@@ -2,8 +2,9 @@ extends PlayerState
 
 
 func _begin_update() -> void:
+	Master.play_audio("player_hurt", 0.6, 0.8)
 	Master.global_time = Time.get_ticks_msec() / 1000.0
-	Master.player_hp -= 1.
+	take_damage(1)
 	if Master != null: Master.player_hitabble = false
 	character.knockback_time = 0.
 	character.velocity = Vector2.ZERO

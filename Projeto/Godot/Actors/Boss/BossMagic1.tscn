@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgf8ks6u7wa22"]
+
+[ext_resource type="Texture2D" uid="uid://cgtj6eag3ew1d" path="res://Sprites/NPCs/Mobs/Bosses/BossMagic1.png" id="1_ecghb"]
+[ext_resource type="Script" uid="uid://c4hxylnpvn4si" path="res://Scripts/Characters/Boss/Attacks/BossAttack1.gd" id="1_xexgv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xexgv"]
+radius = 13.0
+height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlj0f"]
+atlas = ExtResource("1_ecghb")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbbj1"]
+atlas = ExtResource("1_ecghb")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtb42"]
+atlas = ExtResource("1_ecghb")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6j4j"]
+atlas = ExtResource("1_ecghb")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38uos"]
+atlas = ExtResource("1_ecghb")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2u2is"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlj0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbbj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtb42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6j4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38uos")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Magic" type="RigidBody2D" groups=["Enemies"]]
+script = ExtResource("1_xexgv")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-14, 0)
+shape = SubResource("CapsuleShape2D_xexgv")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2u2is")
+autoplay = "default"
+frame_progress = 0.52320516

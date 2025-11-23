@@ -32,6 +32,7 @@ project/assembly_name="learn1"
 [global_group]
 
 Enemies=""
+PlayerAttacks=""
 
 [input]
 
@@ -86,8 +87,9 @@ mb_attack={
 2d_physics/layer_2="PlayerBody"
 2d_physics/layer_3="EnemyBody"
 2d_physics/layer_4="PlayerAttack"
-2d_physics/layer_5="EnemyAttak"
-2d_physics/layer_6="Pickup"
+2d_physics/layer_5="EnemyAttack"
+2d_physics/layer_6="EnviromentAttack"
+2d_physics/layer_7="Pickup"
 
 [rendering]
 

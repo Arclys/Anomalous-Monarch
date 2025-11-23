@@ -5,6 +5,7 @@ class_name Boss
 @export var speed: float = 50.0
 @export var gravity: float = 500.0
 @export var attacks_damage: Dictionary[BossState, float] = {}
+@export var enemies_group: String
 
 var player: Player
 var move_dir: float = 0.0

@@ -5,6 +5,8 @@ class_name Enemy
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box: Area2D = $HitBox
 
+var enemies_group: String = "Player"
+
 var speed: float = 10.0
 var jump_force: float = 20.0
 var gravity: float = 500.0  # valor da gravidade
@@ -18,7 +20,7 @@ var jump: bool = false
 var attack: bool = false
 
 func _ready() -> void:
-	add_to_group("Enemies")
+	pass
 
 func _process(delta: float) -> void:
 	knockback_direction = sprite.scale.x

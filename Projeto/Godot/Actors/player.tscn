@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=37 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Characters/Player/Player.gd" id="1_xk7p5"]
 [ext_resource type="Texture2D" uid="uid://deoj6g2n3yuww" path="res://Sprites/Player/sprPlayerSprite-Sheet.png" id="3_ocf2f"]
@@ -14,9 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://defjvdbsypcg" path="res://Sprites/HUD/sprFullHPBar.png" id="10_c5kq5"]
 [ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Characters/Player/hp_bar_circle.gd" id="11_6kbgh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kbgh"]
-radius = 5.5
-height = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg5uq"]
+size = Vector2(10, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yncu"]
 atlas = ExtResource("3_ocf2f")
@@ -184,17 +183,21 @@ animations = [{
 "speed": 7.5
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3sj5c"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vg5uq"]
 radius = 6.519202
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygsto"]
+size = Vector2(11, 13)
+
+[node name="Player" type="CharacterBody2D" groups=["PlayerAttacks"]]
 position = Vector2(0, -1)
 collision_layer = 2
 script = ExtResource("1_xk7p5")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
-shape = SubResource("CapsuleShape2D_6kbgh")
+[node name="PhysicCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vg5uq")
+debug_color = Color(0.25192034, 0.5055188, 1, 0.41960785)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(0, -50)
@@ -205,8 +208,12 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 7.5
-drag_left_margin = 0.25
-drag_right_margin = 0.25
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.02
+drag_right_margin = 0.05
+drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -281,5 +288,11 @@ collision_mask = 4
 
 [node name="HitboxArea" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_3sj5c")
+shape = SubResource("CircleShape2D_vg5uq")
 debug_color = Color(0.9763518, 0.15554008, 1.92523e-07, 0.41960785)
+
+[node name="AttackBox" type="Area2D" parent="." groups=["PlayerAttacks"]]
+
+[node name="AttackBoxArea" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(5.5, 0.5)
+shape = SubResource("RectangleShape2D_ygsto")

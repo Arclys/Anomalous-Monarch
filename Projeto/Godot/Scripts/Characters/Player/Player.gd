@@ -27,6 +27,7 @@ signal hp_changed(value: int, max_value: int)
 
 # Funções 
 func _ready() -> void:
+	add_to_group("PlayerAttacks")
 	Master.player = self
 	state_machine.state_changer("idle")
 		

@@ -2,7 +2,7 @@ extends EnemyState
 
 
 func _begin_update() -> void:
-	enemy.sprite.play("Fall")
+	character.sprite.play("Fall")
 	
 
 func _update(delta: float) -> void:
@@ -12,9 +12,9 @@ func _update(delta: float) -> void:
 	flip_sprite_y()
 	
 func _physics_update(delta: float) -> void:
-	enemy.velocity.x = enemy.move(enemy.speed, 10., delta).x
-	enemy.apply_gravity(delta)
-	enemy.move_and_slide()
+	character.velocity.x = character.move(character.speed, 10., delta).x
+	character.apply_gravity(delta)
+	character.move_and_slide()
 
 func _end_update() -> void:
-	enemy.sprite.scale.y = 1.
+	character.sprite.scale.y = 1.

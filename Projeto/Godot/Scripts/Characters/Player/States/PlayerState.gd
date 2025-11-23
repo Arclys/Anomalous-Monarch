@@ -27,8 +27,8 @@ func flip_sprite() -> void:
 		character.sprite.scale.x = sign(character.velocity.x)
 
 func take_damage(amount: int) -> void:
-	Master.hp = clamp(Master.hp - amount, 0, Master.max_hp)
-	Master.hp_changed.emit(Master.hp, Master.max_hp)
+	Master.player_hp = clamp(Master.player_hp - amount, 0, Master.player_max_hp)
+	# Master.hp_changed.emit(Master.player_hp, Master.player_max_hp)
 
 func attack() -> bool:
 	return character.attack

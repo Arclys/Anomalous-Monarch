@@ -19,5 +19,4 @@ func _end_update() -> void:
 	
 func _on_animation_death():
 	if character.sprite.animation == "Death":
-		state_machine.state_changer("idle")
 		get_tree().reload_current_scene()
