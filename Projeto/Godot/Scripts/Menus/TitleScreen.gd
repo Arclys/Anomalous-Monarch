@@ -1,6 +1,8 @@
 extends Control
 
 @onready var buttons_location = $MarginContainer/HBoxContainer/VBoxContainer
+@onready var background = $imgBackground as TextureRect
+var time = 0
 # @onready var Master = %Master
 
 var HOVER_COLOR := Color(1, 1, 1)
@@ -69,4 +71,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var texture = background.texture as NoiseTexture2D
+	var noise = texture.noise as Noise
+	time += delta
+	
+	noise.offset += Vector3(50, sin(time) * 25, 0) * delta
+
+	texture.notify_property_list_changed()

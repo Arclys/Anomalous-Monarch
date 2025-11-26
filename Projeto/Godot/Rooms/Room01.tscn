@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://cwarjtpp630e"]
+[gd_scene load_steps=17 format=4 uid="uid://cwarjtpp630e"]
 
 [ext_resource type="Texture2D" uid="uid://c657dbana3s8c" path="res://Sprites/Backgrounds/layer1-2.png" id="1_1lq4e"]
 [ext_resource type="Texture2D" uid="uid://b1dab6ct7kc45" path="res://Sprites/Tiles/tileInterregnoRock.png" id="1_7h4cn"]
 [ext_resource type="Texture2D" uid="uid://btal40uc7357o" path="res://Sprites/Backgrounds/layer1.png" id="1_pxm6f"]
-[ext_resource type="PackedScene" uid="uid://ch4xxyb4c4bh8" path="res://Actors/Player.tscn" id="2_2ccuf"]
+[ext_resource type="PackedScene" uid="uid://ch4xxyb4c4bh8" path="res://Actors/player.tscn" id="2_2ccuf"]
 [ext_resource type="Texture2D" uid="uid://ct1cpo3p8d67m" path="res://Sprites/Tiles/tileVoid.png" id="2_n5jfb"]
 [ext_resource type="Texture2D" uid="uid://bna87o5bn16bf" path="res://Sprites/Backgrounds/layer2.png" id="2_o74bo"]
+[ext_resource type="PackedScene" uid="uid://cvuf0uvwlhkeu" path="res://Rooms/noise.tscn" id="2_ufnw6"]
 [ext_resource type="Texture2D" uid="uid://bvws6wmgmbw3w" path="res://Sprites/Backgrounds/layer3.png" id="3_todee"]
-[ext_resource type="PackedScene" uid="uid://d4m6bb21xj0g8" path="res://Actors/Item.tscn" id="3_uh4mp"]
+[ext_resource type="PackedScene" uid="uid://d4m6bb21xj0g8" path="res://Actors/item.tscn" id="3_uh4mp"]
 [ext_resource type="Texture2D" uid="uid://wmgpwytjxoo2" path="res://Sprites/Backgrounds/layer4.png" id="4_a48co"]
 [ext_resource type="Texture2D" uid="uid://da4dwfnr3nikp" path="res://Sprites/Backgrounds/layer5.png" id="5_aef5f"]
 [ext_resource type="Texture2D" uid="uid://ci227njs88t71" path="res://Sprites/Backgrounds/layer6.png" id="6_onuvs"]
@@ -401,13 +402,15 @@ sources/2 = SubResource("TileSetAtlasSource_pxm6f")
 z_index = -1
 scroll_scale = Vector2(0.1, 0.1)
 scroll_offset = Vector2(0, 1)
-repeat_size = Vector2(256, 128)
 autoscroll = Vector2(-4, -1)
 repeat_times = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/01"]
 texture = ExtResource("6_onuvs")
 centered = false
+
+[node name="Noise" parent="Parallax/01" instance=ExtResource("2_ufnw6")]
+position = Vector2(-555, -481.00003)
 
 [node name="02" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.2, 1)
