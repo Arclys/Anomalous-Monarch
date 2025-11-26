@@ -1,6 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=39 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Characters/Player/Player.gd" id="1_xk7p5"]
+[ext_resource type="PackedScene" uid="uid://cvuf0uvwlhkeu" path="res://Rooms/noise.tscn" id="2_6yncu"]
+[ext_resource type="Script" uid="uid://cbdqrrqn4w8qk" path="res://Actors/camera.gd" id="2_rr1ak"]
 [ext_resource type="Texture2D" uid="uid://deoj6g2n3yuww" path="res://Sprites/Player/sprPlayerSprite-Sheet.png" id="3_ocf2f"]
 [ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Characters/StateMachine.gd" id="4_4bcxw"]
 [ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Characters/Player/States/Idle.gd" id="5_1c8hm"]
@@ -216,6 +218,11 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
+script = ExtResource("2_rr1ak")
+
+[node name="Noise" parent="Camera" instance=ExtResource("2_6yncu")]
+z_index = -100
+centered = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)

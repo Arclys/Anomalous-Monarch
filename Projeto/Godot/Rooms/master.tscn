@@ -35,6 +35,8 @@ bus = &"SFX"
 
 [node name="player_hurt" type="AudioStreamPlayer" parent="Audios"]
 stream = ExtResource("6_farym")
+bus = &"SFX"
 
 [node name="warm_hurt" type="AudioStreamPlayer" parent="Audios"]
 stream = ExtResource("7_1k02y")
+bus = &"SFX"

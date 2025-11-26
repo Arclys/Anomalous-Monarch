@@ -27,7 +27,7 @@ in_3d_space = true
 
 [node name="Noise" type="Sprite2D"]
 modulate = Color(0.40832946, 0.40832946, 0.40832946, 1)
-scale = Vector2(5.8476567, 1.96875)
+scale = Vector2(2.2597656, 1.2773438)
 texture = SubResource("NoiseTexture2D_2e2x6")
 centered = false
 script = ExtResource("1_8pi5l")
