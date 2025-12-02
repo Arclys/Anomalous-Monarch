@@ -48,3 +48,6 @@ func enemy_collided() -> bool:
 
 func iframes_execute():
 	character.sprite.modulate.a = 0.5 + 0.5 * sin(Time.get_ticks_msec()*2 / 100.0)
+
+func jump() -> void:
+	character.velocity.y = -character.jump_force

@@ -5,7 +5,7 @@ class_name Enemy
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box: Area2D = $HitBox
 
-var enemies_group: String = "Player"
+var enemies_group: String = "PlayerBody"
 
 var speed: float = 10.0
 var jump_force: float = 20.0

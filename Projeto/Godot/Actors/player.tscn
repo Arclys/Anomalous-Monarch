@@ -1,8 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://ch4xxyb4c4bh8"]
+[gd_scene load_steps=37 format=3 uid="uid://ch4xxyb4c4bh8"]
 
 [ext_resource type="Script" uid="uid://dlsktjaxsoano" path="res://Scripts/Characters/Player/Player.gd" id="1_xk7p5"]
-[ext_resource type="PackedScene" uid="uid://cvuf0uvwlhkeu" path="res://Rooms/noise.tscn" id="2_6yncu"]
-[ext_resource type="Script" uid="uid://cbdqrrqn4w8qk" path="res://Actors/camera.gd" id="2_rr1ak"]
 [ext_resource type="Texture2D" uid="uid://deoj6g2n3yuww" path="res://Sprites/Player/sprPlayerSprite-Sheet.png" id="3_ocf2f"]
 [ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Characters/StateMachine.gd" id="4_4bcxw"]
 [ext_resource type="Script" uid="uid://dlwnjoq7w4psr" path="res://Scripts/Characters/Player/States/Idle.gd" id="5_1c8hm"]
@@ -15,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d804e2bl7e5f" path="res://Sprites/HUD/sprEmptyHPBar.png" id="10_6kbgh"]
 [ext_resource type="Texture2D" uid="uid://defjvdbsypcg" path="res://Sprites/HUD/sprFullHPBar.png" id="10_c5kq5"]
 [ext_resource type="Script" uid="uid://chsl7wf3ycj25" path="res://Scripts/Characters/Player/hp_bar_circle.gd" id="11_6kbgh"]
+[ext_resource type="Script" uid="uid://duef2x1jp1a7b" path="res://Scripts/Characters/Player/States/RoomTrade.gd" id="11_6yncu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg5uq"]
 size = Vector2(10, 13)
@@ -188,11 +187,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vg5uq"]
 radius = 6.519202
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygsto"]
-size = Vector2(11, 13)
-
-[node name="Player" type="CharacterBody2D" groups=["PlayerAttacks"]]
-position = Vector2(0, -1)
+[node name="Player" type="CharacterBody2D" groups=["PlayerBody"]]
 collision_layer = 2
 script = ExtResource("1_xk7p5")
 
@@ -218,11 +213,6 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource("2_rr1ak")
-
-[node name="Noise" parent="Camera" instance=ExtResource("2_6yncu")]
-z_index = -100
-centered = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
@@ -255,6 +245,10 @@ script = ExtResource("9_ks2ow")
 
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource("10_3sj5c")
+
+[node name="RoomTrade" type="Node" parent="StateMachine"]
+script = ExtResource("11_6yncu")
+metadata/_custom_type_script = "uid://brssbau4w72cw"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -289,7 +283,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["PlayerAttacks"]]
 collision_layer = 8
 collision_mask = 4
 
@@ -297,9 +291,3 @@ collision_mask = 4
 position = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_vg5uq")
 debug_color = Color(0.9763518, 0.15554008, 1.92523e-07, 0.41960785)
-
-[node name="AttackBox" type="Area2D" parent="." groups=["PlayerAttacks"]]
-
-[node name="AttackBoxArea" type="CollisionShape2D" parent="AttackBox"]
-position = Vector2(5.5, 0.5)
-shape = SubResource("RectangleShape2D_ygsto")

@@ -4,7 +4,7 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var state_machine: StateMachine = $StateMachine
 @onready var hit_box: Area2D = $Hitbox
-
+@onready var camera: Camera2D = $Camera
 # VARIAVEIS SIMPLES
 @export var speed: float = 80.0
 @export var jump_force: float = 250.0
@@ -27,10 +27,11 @@ signal hp_changed(value: int, max_value: int)
 
 # Funções 
 func _ready() -> void:
-	add_to_group("PlayerAttacks")
+	add_to_group("PlayerBody")
 	Master.player = self
 	state_machine.state_changer("idle")
-		
+	position = Master.player_coords
+	
 func _process(delta: float) -> void:
 	knockback_dir = sprite.scale.x
 
@@ -46,4 +47,3 @@ func move(target_speed: float, acceleration: float, delta: float) -> Vector2:
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
-

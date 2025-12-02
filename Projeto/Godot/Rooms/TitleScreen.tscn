@@ -117,6 +117,7 @@ icon = ExtResource("5_g3l3g")
 icon_alignment = 1
 
 [node name="imgPlayer" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_1xr1c")

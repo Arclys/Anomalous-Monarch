@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy3nheqp6piv6"]
+
+[ext_resource type="Script" uid="uid://dfssihhjlwst2" path="res://Scripts/Globals/GlobalPlayerManager.gd" id="1_vkby4"]
+[ext_resource type="AudioStream" uid="uid://c7mnxt0vgudjx" path="res://SFX/whool.wav" id="2_cudnu"]
+[ext_resource type="AudioStream" uid="uid://drvxn3rmlylq4" path="res://SFX/whoosh.wav" id="3_faahb"]
+[ext_resource type="AudioStream" uid="uid://dyvn52a7hj1ep" path="res://SFX/click.wav" id="4_ey8oo"]
+[ext_resource type="AudioStream" uid="uid://dorv6n1xa0g6o" path="res://SFX/stone_step.wav" id="5_dvbpm"]
+[ext_resource type="AudioStream" uid="uid://b3isdkksk3pb7" path="res://SFX/player_hurt.wav" id="6_cmn2s"]
+[ext_resource type="AudioStream" uid="uid://csr21w5fxxa8j" path="res://SFX/warm_hurt.wav" id="7_savvo"]
+
+[node name="Master" type="Node"]
+script = ExtResource("1_vkby4")
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="whool" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("2_cudnu")
+volume_db = -30.0
+pitch_scale = 1.1
+bus = &"SFX"
+
+[node name="woosh" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("3_faahb")
+pitch_scale = 0.85
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("4_ey8oo")
+pitch_scale = 0.85
+bus = &"SFX"
+
+[node name="stone_step" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("5_dvbpm")
+bus = &"SFX"
+
+[node name="player_hurt" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("6_cmn2s")
+
+[node name="warm_hurt" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("7_savvo")

@@ -16,9 +16,14 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="uid://byailt31p2f6i"
 
+[audio]
+
+buses/default_bus_layout="res://SFX/default_bus_layout.tres"
+
 [autoload]
 
-Master="*res://Rooms/master.tscn"
+Master="*res://Actors/master.tscn"
+RoomManager="*res://Scripts/Globals/GlobalRoomManager.gd"
 
 [display]
 
@@ -33,6 +38,8 @@ project/assembly_name="learn1"
 
 Enemies=""
 PlayerAttacks=""
+Scenere=""
+PlayerBody=""
 
 [input]
 
