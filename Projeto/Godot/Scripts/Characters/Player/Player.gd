@@ -1,21 +1,24 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var state_machine: StateMachine = $StateMachine
-@onready var hit_box: Area2D = $Hitbox
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var camera: Camera2D = $Camera
+@onready var hurt_box: Area2D = $HurtboxArea
+@onready var hit_box: Area2D = $Hitbox
 # VARIAVEIS SIMPLES
-@export var speed: float = 80.0
+@export var hspd: float = 90.0
 @export var jump_force: float = 250.0
 @export var gravity: float = 500.0  # valor da gravidade
 @export var max_hp: int = 5
 @export var knockback_force: Vector2 = Vector2(100,-100)
 @export var knockback_duration: float = 2.0
+@export var attack_damage: int = 1.0
 
 var knockback_dir: int = 0
 var hp: int = max_hp
 var move_dir: float = 0.0
+
 var jump: bool = false
 var attack: bool = false
 

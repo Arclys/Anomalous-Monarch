@@ -7,7 +7,7 @@ func _begin_update() -> void:
 
 func _update(delta: float) -> void:	
 	if character.sprite.animation_finished: 
-		state_machine.state_changer("idle")
+		character.queue_free()
 
 func _physics_update(delta: float) -> void:
 	pass

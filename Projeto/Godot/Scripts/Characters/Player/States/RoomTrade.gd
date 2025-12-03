@@ -1,18 +1,18 @@
 extends PlayerState
 
-
-
 func _begin_update() -> void:
+	character.velocity = Vector2.ZERO
 	if RoomManager.player_jump_on_enter:
 		jump()
 		RoomManager.player_jump_on_enter = false
-	Master.player_coords = RoomManager.player_coords
+	
 
 func _update(delta: float) -> void:
-	pass
-
+	if RoomManager.room_transicion_finished:
+		state_machine.state_changer("Idle")
+		RoomManager.room_transicion_finished = false
 func _physics_update(delta: float) -> void:
-	state_machine.state_changer("Idle")
-
+	pass
 func _end_update() -> void:
+	on_cam_smoothing()
 	RoomManager.activate = false

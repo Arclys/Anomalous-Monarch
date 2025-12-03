@@ -8,6 +8,7 @@ func _begin_update() -> void:
 func _update(delta: float) -> void:
 	if death(): state_machine.state_changer("death")
 	if on_ground(): state_machine.state_changer("idle")
+	if enemy_collided(): state_machine.state_changer("hit")
 	flip_sprite_x()
 	flip_sprite_y()
 	

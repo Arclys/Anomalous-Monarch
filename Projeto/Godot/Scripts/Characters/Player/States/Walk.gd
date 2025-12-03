@@ -8,16 +8,17 @@ func _begin_update() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:
-	if death(): state_machine.state_changer("death")
 	if stopped(): state_machine.state_changer("idle")
 	if not(on_ground()): state_machine.state_changer("fall")
 	if jumping(): state_machine.state_changer("jump")
 	if enemy_collided(): state_machine.state_changer("hit")
+	if transition_room(): state_machine.state_changer("roomtrade")
+	if attack(): state_machine.state_changer("attack")
 	flip_sprite()
 	
 
 func _physics_update(delta: float) -> void:
-	character.velocity.x = character.move(character.speed, 10., delta).x
+	character.velocity.x = character.move(character.hspd, 10., delta).x
 	character.move_and_slide()
 	Master.play_audio("stone_step", 0.85, 1.0)
 	

@@ -5,7 +5,7 @@ extends Node
 @export var player_max_hp: float = 5
 @export var player_hp: float = player_max_hp
 @export var player_money: int = 0
-@onready var player_coords: Vector2 = Vector2.ZERO
+@onready var player_coords: Vector2
 @onready var audios_node = self.get_node("Audios") as Node
 
 var player: Player
@@ -17,6 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if player:
+		player_coords = player.position
 	global_time += delta
 
 func play_audio(audio: NodePath, min_pitch: float = .85, max_pitch: float = 1):		

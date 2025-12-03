@@ -14,7 +14,7 @@ config/name="Anomalous Monarch"
 run/main_scene="uid://cw2roy32jn35h"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="uid://byailt31p2f6i"
+config/icon="uid://defjvdbsypcg"
 
 [audio]
 
@@ -40,6 +40,8 @@ Enemies=""
 PlayerAttacks=""
 Scenere=""
 PlayerBody=""
+BossBody=""
+BossAttacks=""
 
 [input]
 

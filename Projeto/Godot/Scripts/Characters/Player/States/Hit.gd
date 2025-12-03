@@ -9,14 +9,12 @@ func _begin_update() -> void:
 	character.knockback_time = 0.
 	character.velocity = Vector2.ZERO
 	character.velocity = Vector2(-character.knockback_dir * character.knockback_force.x, character.knockback_force.y)
-	
-	
 	character.sprite.play("Hit")
 
 func _update(delta: float) -> void:
-	if death(): state_machine.state_changer("death"); return
-	if on_ground(): state_machine.state_changer("idle"); return
 	iframes_execute()
+	if death(): state_machine.state_changer("death")
+	if on_ground(): state_machine.state_changer("idle")
 	
 # Loop da física
 func _physics_update(delta: float) -> void:

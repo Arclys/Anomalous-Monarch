@@ -40,14 +40,25 @@ func animation_ended(function: Callable) -> void:
 	character.sprite.connect("animation_finished", function)	
 
 func enemy_collided() -> bool:
-	var enemies = character.hit_box.get_overlapping_bodies()
+	var enemies = character.hurt_box.get_overlapping_bodies()
 	for body in enemies:
 		if body.is_in_group("Enemies"):
 			return true
 	return false
 
-func iframes_execute():
+func iframes_execute() -> void:
 	character.sprite.modulate.a = 0.5 + 0.5 * sin(Time.get_ticks_msec()*2 / 100.0)
 
 func jump() -> void:
 	character.velocity.y = -character.jump_force
+
+func transition_room() -> bool:
+	return RoomManager.activate
+
+func off_cam_smoothing() -> void:
+	if character.camera:
+		character.camera.position_smoothing_enabled = false
+
+func on_cam_smoothing() -> void:
+	if character.camera:
+		character.camera.position_smoothing_enabled = true
