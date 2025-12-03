@@ -28,7 +28,6 @@ func flip_sprite() -> void:
 
 func take_damage(amount: int) -> void:
 	Master.player_hp = clamp(Master.player_hp - amount, 0, Master.player_max_hp)
-	# Master.hp_changed.emit(Master.player_hp, Master.player_max_hp)
 
 func attack() -> bool:
 	return character.attack
@@ -62,3 +61,8 @@ func off_cam_smoothing() -> void:
 func on_cam_smoothing() -> void:
 	if character.camera:
 		character.camera.position_smoothing_enabled = true
+
+func _on_hurtbox_body_entered(body: Node2D) -> bool:
+	if body.is_in_group("Enemies"):
+		return true
+	return false

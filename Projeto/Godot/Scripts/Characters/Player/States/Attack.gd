@@ -35,4 +35,5 @@ func _on_animation_finished():
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):
 		hitted = true
-		body.hp -= character.attack_damage
+		if body is CharacterBody2D:
+			body.hp -= character.attack_damage

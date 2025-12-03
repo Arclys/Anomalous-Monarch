@@ -4,13 +4,14 @@ class_name Boss
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var rest_timer: Timer = $Rest
 @onready var attack_delay_timer: Timer = $AttackDelay
-
+@onready var hurt_box: Area2D = $Hurtbox
 @onready var BOSSMAGIC1 := preload("res://Actors/Boss/BossMagic1.tscn")
 
-@export var max_hp: int = 20
+@export var max_hp: int = 30
 @export var speed: float = 50.0
 @export var gravity: float = 500.0
 
+var rest_pos: Vector2
 var markers: Array = []
 var move_dir: float = 0.0
 var hp: int = max_hp
@@ -20,7 +21,8 @@ func _ready() -> void:
 	for i in sprite.get_children():
 		if i is Marker2D:
 			markers.append(i)
-	print(markers)
+
+	rest_pos = position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -39,7 +41,5 @@ func move(target_speed: float, acceleration: float, delta: float) -> Vector2:
 func instance_magic() -> void:
 		for i in markers:
 			var magic := BOSSMAGIC1.instantiate()
-			magic.global_position = markers[i].global_position
+			magic.global_position = i.global_position
 			get_tree().current_scene.add_child(magic)
-
-

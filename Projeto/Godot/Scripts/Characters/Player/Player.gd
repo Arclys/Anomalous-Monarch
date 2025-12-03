@@ -4,7 +4,7 @@ class_name Player
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var camera: Camera2D = $Camera
-@onready var hurt_box: Area2D = $HurtboxArea
+@onready var hurt_box: Area2D = $Hurtbox
 @onready var hit_box: Area2D = $Hitbox
 # VARIAVEIS SIMPLES
 @export var hspd: float = 90.0
@@ -21,7 +21,7 @@ var move_dir: float = 0.0
 
 var jump: bool = false
 var attack: bool = false
-
+var hitted: bool = false
 var spr_dir: int = sign(velocity.x)
 var knockback_time: float = 0.0
 
@@ -30,6 +30,7 @@ signal hp_changed(value: int, max_value: int)
 
 # Funções 
 func _ready() -> void:
+	hitted = hurt_box.connect("body_entered", Callable(PlayerState,"_on_hurtbox_body_entered"))
 	add_to_group("PlayerBody")
 	Master.player = self
 	state_machine.state_changer("idle")

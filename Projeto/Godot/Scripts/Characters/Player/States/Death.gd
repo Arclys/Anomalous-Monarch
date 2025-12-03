@@ -5,6 +5,7 @@ func _begin_update() -> void:
 	character.sprite.play("Death")
 	character.velocity = Vector2.ZERO
 	animation_ended(self._on_animation_death)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:

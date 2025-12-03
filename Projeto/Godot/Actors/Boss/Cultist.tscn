@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://oaxsoa465b33" path="res://Scripts/Characters/Boss/Boss.gd" id="1_ocf03"]
 [ext_resource type="Texture2D" uid="uid://bghgncwtax1uh" path="res://Sprites/NPCs/Mobs/sprCultista.png" id="2_bysyy"]
 [ext_resource type="Script" uid="uid://dwxtf6yqv7m5u" path="res://Scripts/Characters/StateMachine.gd" id="3_0fxf1"]
-[ext_resource type="Script" uid="uid://c6naoymt05fh8" path="res://Scripts/Characters/Boss/States/BossState.gd" id="4_ae8wv"]
 [ext_resource type="Script" uid="uid://dkapf8cq46sr2" path="res://Scripts/Characters/Boss/States/Wait.gd" id="4_n02uv"]
 [ext_resource type="Script" uid="uid://b0huawpi4ps84" path="res://Scripts/Characters/Boss/States/Attack.gd" id="5_bysyy"]
+[ext_resource type="Script" uid="uid://bdsdk214j26xl" path="res://Scripts/Characters/Boss/States/Defeat.gd" id="6_ae8wv"]
 [ext_resource type="Script" uid="uid://cmybb5sscve4e" path="res://Scripts/Characters/Boss/States/Rest.gd" id="7_7ugah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjnx1"]
@@ -83,10 +83,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ro57d"]
 size = Vector2(11, 26)
 
-[node name="Cultist" type="CharacterBody2D" groups=["BossBody"]]
+[node name="Cultist" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_ocf03")
+max_hp = 1
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -113,17 +114,17 @@ position = Vector2(-120, -40)
 [node name="MagicPoint5" type="Marker2D" parent="Sprite" groups=["Enemies"]]
 position = Vector2(-60, -40)
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["Enemies"]]
 collision_layer = 16
 collision_mask = 4
 
-[node name="HitBoxArea" type="CollisionShape2D" parent="HitBox"]
+[node name="HitBoxArea" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_ro57d")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("begin_state")]
 script = ExtResource("3_0fxf1")
-begin_state = NodePath("Attack")
+begin_state = NodePath("Wait")
 metadata/_custom_type_script = "uid://dwxtf6yqv7m5u"
 
 [node name="Wait" type="Node" parent="StateMachine"]
@@ -134,8 +135,8 @@ metadata/_custom_type_script = "uid://c6naoymt05fh8"
 script = ExtResource("5_bysyy")
 metadata/_custom_type_script = "uid://c6naoymt05fh8"
 
-[node name="Deafeted" type="Node" parent="StateMachine"]
-script = ExtResource("4_ae8wv")
+[node name="Defeat" type="Node" parent="StateMachine"]
+script = ExtResource("6_ae8wv")
 metadata/_custom_type_script = "uid://c6naoymt05fh8"
 
 [node name="Rest" type="Node" parent="StateMachine"]
@@ -143,10 +144,10 @@ script = ExtResource("7_7ugah")
 metadata/_custom_type_script = "uid://c6naoymt05fh8"
 
 [node name="Rest" type="Timer" parent="."]
-one_shot = true
+wait_time = 5.0
 
 [node name="AttackDelay" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
+[connection signal="timeout" from="Rest" to="StateMachine/Rest" method="_on_rest_timeout"]
 [connection signal="timeout" from="AttackDelay" to="StateMachine/Attack" method="_on_attack_delay_timeout"]

@@ -476,7 +476,7 @@ limit_left = -32
 limit_bottom = 68
 
 [node name="Cultist" parent="." instance=ExtResource("9_lplr2")]
-position = Vector2(574, -75)
+position = Vector2(802, -144)
 
 [node name="Doors" type="Node2D" parent="."]
 position = Vector2(719, -130)

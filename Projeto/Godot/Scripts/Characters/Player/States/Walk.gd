@@ -8,10 +8,10 @@ func _begin_update() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _update(delta: float) -> void:
+	if character.hitted: state_machine.state_changer("hit")
 	if stopped(): state_machine.state_changer("idle")
 	if not(on_ground()): state_machine.state_changer("fall")
 	if jumping(): state_machine.state_changer("jump")
-	if enemy_collided(): state_machine.state_changer("hit")
 	if transition_room(): state_machine.state_changer("roomtrade")
 	if attack(): state_machine.state_changer("attack")
 	flip_sprite()

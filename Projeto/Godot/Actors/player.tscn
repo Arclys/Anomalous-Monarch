@@ -368,12 +368,13 @@ position = Vector2(14, 0.5)
 shape = SubResource("RectangleShape2D_6yncu")
 debug_color = Color(0.9763518, 0.15554008, 1.92523e-07, 0.41960785)
 
-[node name="HurtboxArea" type="Area2D" parent="." groups=["PlayerBody"]]
+[node name="Hurtbox" type="Area2D" parent="." groups=["PlayerBody"]]
 collision_layer = 2
-collision_mask = 8
+collision_mask = 20
 
-[node name="HurtboxArea" type="CollisionShape2D" parent="HurtboxArea"]
+[node name="HurtboxArea" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_6yncu")
 debug_color = Color(0, 0.6431373, 0.29411766, 0.30980393)
 
 [connection signal="body_entered" from="Hitbox" to="StateMachine/Attack" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="StateMachine/Fall" method="_on_hurtbox_body_entered"]

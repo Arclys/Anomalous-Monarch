@@ -44,6 +44,6 @@ func player_in_vision() -> bool:
 func enemy_collided() -> bool:
 	var enemies = character.hit_box.get_overlapping_bodies()
 	for body in enemies:
-		if body.is_in_group("PlayerAttacks"):
+		if body.is_in_group("PlayerAttacks") and Master.player.attack:
 			return true
 	return false

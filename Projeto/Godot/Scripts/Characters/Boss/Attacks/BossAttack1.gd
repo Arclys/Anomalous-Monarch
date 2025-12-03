@@ -3,13 +3,13 @@ extends RigidBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 var player_pos: Vector2
-var move_direction: float = -1
+var move_direction: float = 1
 var damage: int = 1
-var speed: float = 40.0
+var speed: float = 200.0
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	scale.x = move_direction
+	add_to_group("Enemies")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
